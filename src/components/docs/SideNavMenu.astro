@@ -9,28 +9,41 @@ const pathname: string = new URL(Astro.request.url).pathname;
 const { class: className } = Astro.props;
 ---
 
-<ul class:list={["list-none m-0", className]}>
+<ul class:list={["list-none space-y-1", level === 0 ? "m-0" : "ml-4 mt-2", className]}>
   {
     items
-      .filter((item) => !item.draft)
+      .filter((item) => !item.draft && item.slug !== "")
       .map((item) => {
         const label = item.title
           ? capitalizeFirstLetter(item.title)
-          : capitalizeFirstLetter(item.slug.split("/").pop() || "");
-        const className = `
-        ${level === 0 ? "font-semibold" : "text-muted-foreground"}
-        ${pathname === "/" + item.slug ? "text-primary" : "no-underline"}
-        `.trim();
+          : capitalizeFirstLetter(item.slug.split("/").pop() || "Home");
+        const href = item.slug === "" ? "/index" : `/${item.slug}`;
+        const isActive = (item.slug === "" && (pathname === "/" || pathname === "/index")) || pathname === `/${item.slug}`;
+        
+        // Enhanced styling for menu bar feel
+        const baseClasses = "w-full block px-3 py-2.5 rounded-md transition-all duration-200 text-left";
+        const levelClasses = level === 0 
+          ? "text-base font-semibold" 
+          : "text-sm font-medium ml-0";
+        const stateClasses = isActive 
+          ? "bg-primary/10 text-primary border-l-4 border-primary shadow-sm" 
+          : "text-muted-foreground hover:text-foreground hover:bg-muted/50";
+        
+        const finalClassName = `${baseClasses} ${levelClasses} ${stateClasses}`;
+        
         return (
           <li class="w-full">
             <a
-              href={`/${item.slug}`}
-              class={`${className}  text-sm leading-none w-full`}
+              href={href}
+              class={`${finalClassName} no-underline`}
             >
-              {label}
+              <span class={level === 0 ? "flex items-center gap-2" : ""}>
+                {level === 0 && <span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>}
+                {label}
+              </span>
             </a>
             {item.children.length > 0 && (
-              <Astro.self items={item.children} level={level + 1} />
+              <Astro.self items={item.children} level={level + 1} class="border-l border-border/30 ml-3" />
             )}
           </li>
         );

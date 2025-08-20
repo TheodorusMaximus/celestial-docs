@@ -1,12 +1,12 @@
 import type { SocialObjects } from "@/lib/types";
 
 export const SITE = {
-  website: "https://hyperoot.dev", // replace this with your deployed domain
-  author: "HYP3R00T",
-  desc: "Documentation template using Astro and Shadcn",
-  title: "CelestialDocs",
+  website: "https://pipelinevision-project.com", // replace this with your deployed domain
+  author: "Theodore Zipoy",
+  desc: "Pipeline Vision - AI-Powered Threat Detection for Pipeline Safety",
+  title: "Pipeline Vision",
   ogImage: "og-image.jpg",
-  repo: "https://github.com/HYP3R00T/CelestialDocs",
+  repo: "https://github.com/TheodorusMaximus/pipelinevision",
 };
 
 export const LOCALE = {
@@ -15,21 +15,39 @@ export const LOCALE = {
 } as const;
 
 export const menu_items: { title: string; href: string }[] = [
-  // {
-  //   title: "Home",
-  //   href: "/",
-  // },
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Overview",
+    href: "/project-overview",
+  },
+  {
+    title: "Planning",
+    href: "/project-planning",
+  },
+  {
+    title: "Execution",
+    href: "/project-execution",
+  },
+  {
+    title: "Monitoring",
+    href: "/project-monitoring",
+  },
 ];
 
 // Just works with top-level folders and files. For files, don't add extension as it looks for the slug, and not the file name.
 export const side_nav_menu_order: string[] = [
-  "getting-started",
-  "guides",
-  "guides/pages",
-  "guides/table-of-contents",
-  "guides/sidebar-navigation",
-  "custom-components",
-  "reference",
+  "project-overview",
+  "project-overview/technical-data",
+  "project-overview/dictionary-of-terms",
+  "project-planning",
+  "project-planning/timeline",
+  "project-planning/risk-management",
+  "project-planning/mvp-planning",
+  "project-execution",
+  "project-monitoring",
 ];
 
 // Don't delete anything. You can use 'true' or 'false'.
@@ -49,7 +67,7 @@ export const docconfig = {
 export const Socials: SocialObjects = [
   {
     name: "Github",
-    href: "https://github.com/HYP3R00T/",
+    href: "https://github.com/TheodorusMaximus/pipelinevision",
     linkTitle: ` ${SITE.title} on Github`,
     active: true,
   },
@@ -73,7 +91,7 @@ export const Socials: SocialObjects = [
   },
   {
     name: "Mail",
-    href: "mailto:rajesh@hyperoot.dev",
+    href: "mailto:theodore.zipoy@example.com",
     linkTitle: `Send an email to ${SITE.title}`,
     active: true,
   },
@@ -139,8 +157,8 @@ export const Socials: SocialObjects = [
   },
   {
     name: "Mastodon",
-    href: "https://mastodon.social/@hyp3r00t",
+    href: "https://mastodon.social/@theodorezipoy",
     linkTitle: `${SITE.title} on Mastodon`,
-    active: true,
+    active: false,
   },
 ];

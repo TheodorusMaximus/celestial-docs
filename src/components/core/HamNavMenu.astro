@@ -43,14 +43,19 @@ const pathname_part: string = pathname.split("/")[1];
     <div class="mt-6 flex flex-col items-start px-6">
       {
         menu_items.map((item) => (
-          <a href={item.href}>
-            <Button
-              variant="link"
-              className=`${"/" + pathname_part === "/" + item.href.split("/")[1] ? "underline" : ""} text-foreground`
-              key={item.href}
-            >
-              {item.title}
-            </Button>
+          <a 
+            href={item.href}
+            class={`
+              px-3 py-2 text-base font-medium transition-colors duration-200 no-underline
+              ${
+                (pathname === "/" && item.href === "/") ||
+                (pathname !== "/" && "/" + pathname_part === "/" + item.href.split("/")[1])
+                  ? "text-red-500 font-semibold"
+                  : "text-foreground hover:text-red-500"
+              }
+            `}
+          >
+            {item.title}
           </a>
         ))
       }

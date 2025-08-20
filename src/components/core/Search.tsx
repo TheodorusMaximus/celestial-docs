@@ -20,11 +20,11 @@ import type { DocsEntry } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
 function extractHeaders(body: string): string[] {
-  const headers = [];
+  const headers: string[] = [];
   const lines = body.split("\n");
   for (const line of lines) {
     const match = line.match(/^(#{1,6})\s+(.*)/);
-    if (match) {
+    if (match && match[2]) {
       headers.push(match[2]);
     }
   }

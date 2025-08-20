@@ -109,8 +109,9 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
-      mono: ["'JetBrains Mono'", ...defaultTheme.fontFamily.mono],
+      sans: ["Urbanist", ...defaultTheme.fontFamily.sans],
+      mono: ["'Chakra Petch'", ...defaultTheme.fontFamily.sans],
+      display: ["'Chakra Petch'", ...defaultTheme.fontFamily.sans],
     },
   },
   plugins: [require("tailwindcss-animate")],

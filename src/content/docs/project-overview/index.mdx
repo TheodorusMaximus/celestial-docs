@@ -1,0 +1,143 @@
+---
+title: "Project Overview"
+description: "PipelineVision - AI-Powered Threat Detection for Pipeline Safety"
+author: "Theodore Zipoy"
+publishDate: 2025-01-20
+tags: ["pipeline-threat-detection", "computer-vision", "vanguard"]
+showBreadcrumbs: true
+showTableOfContents: true
+showNavigationLinks: true
+---
+
+import { Card } from '@/components/docs/Card';
+
+# PipelineVision: Transforming Pipeline Safety
+
+## Executive Summary
+
+PipelineVision is an AI-powered computer vision system designed to enhance VanGuard Pipeline's existing Falcon pod platform with real-time threat detection capabilities. This project automates the identification of construction threats like excavators along pipeline corridors—moving beyond gas detection to create a more comprehensive safety net.
+
+## The Opportunity
+
+VanGuard Pipeline Inspection has built an exceptional business providing real-time, in-cockpit methane detection. However, detection of physical threats to pipeline right-of-way still relies entirely on manual visual scanning, creating critical challenges:
+
+### Human Factors Risk
+Continuous visual scanning over 4-6 hour flights causes cognitive fatigue and missed threats
+
+### Safety Exposure
+Undetected excavator strikes cost the industry $30-60 billion annually with 136+ casualties over 10 years
+
+### Competitive Vulnerability
+While VanGuard leads in methane detection, competitors are advancing in automated threat detection
+
+## Project Objectives
+
+### Primary Objectives
+- **Automated Threat Detection**: Achieve over 90% recall for excavators and exposed pipes
+- **Real-Time Processing**: Deliver over 10 FPS inference on edge hardware during flight
+- **Operator Trust**: Maintain over 85% Actionable Intelligence Rate (AIR)
+- **Seamless Integration**: Zero disruption to existing VanGuard workflows
+
+### Secondary Objectives
+- Build foundation for multi-threat detection expansion
+- Create data pipeline for continuous model improvement
+- Enable competitive differentiation through AI capabilities
+
+## Project Scope
+
+### In Scope
+- YOLOv8-based computer vision model for threat detection
+- Edge computing on NVIDIA Jetson AGX Orin hardware
+- Integration with existing Sony ILX-LR1 camera systems
+- iPad interface for operator alerts and feedback
+- GPS/KMZ corridor validation and logging
+- Three-phase MVP development approach
+
+### Out of Scope
+- Modification of existing gas detection systems
+- Changes to aircraft hardware or certification
+- Cloud-based processing (all inference at edge)
+- Automated flight path adjustments
+- Integration with external reporting systems (Phase 1)
+
+## Stakeholders
+
+### VanGuard Pipeline Team
+- **Operators**: Alex "Eagle Eye" Rivera persona - experienced pilots requiring trust in AI alerts
+- **Management**: Seeking competitive advantage and operational efficiency
+- **Technical Team**: Responsible for system integration and maintenance
+
+### Development Team
+- **Lead Consultant**: Project management and technical oversight (60% allocation)
+- **ML Engineer**: Computer vision and model optimization (80% allocation)
+- **Software Engineer**: System integration and UI development (70% allocation)
+- **Data Engineer**: Dataset processing and quality assurance (40% allocation)
+- **Integration Specialist**: Hardware and VanGuard systems (30% allocation)
+
+## Success Metrics
+
+### Operational Performance
+- **Actionable Intelligence Rate**: over 85% operator confirmation
+- **Detection Performance**: over 90% recall, over 80% precision
+- **Processing Speed**: over 10 FPS sustained operation
+- **System Reliability**: over 99% uptime during flights
+
+### Business Impact
+- **Strike Prevention**: $7.84M annual savings (25% improvement)
+- **Operational Efficiency**: $499K annual labor savings
+- **Premium Revenue**: $1.2M from enhanced service offering
+- **ROI**: 4,208% over 3 years
+
+## Technical Architecture
+
+### Data Pipeline
+- **Input**: Sony ILX-LR1 high-resolution video feed
+- **Processing**: Real-time frame capture and normalization
+- **Detection**: YOLOv8 model optimized for aerial imagery
+- **Output**: Bounding boxes with threat classifications
+
+### Compute Infrastructure
+- **MVP-0**: Cloud resources for proof-of-concept
+- **MVP-1**: Laptop/edge device for live demo
+- **MVP-2**: NVIDIA Jetson AGX Orin on aircraft pod
+
+### Integration Points
+- Falcon pod camera systems
+- iPad operator interface
+- GPS/KMZ corridor data
+- Operational logging systems
+
+## Project Constraints
+
+### Technical Constraints
+- Edge processing limitations (power, compute, storage)
+- Real-time performance requirements (under 100ms latency)
+- Aircraft vibration and environmental conditions
+- Limited connectivity during flight operations
+
+### Business Constraints
+- $683K total budget with milestone-based payments
+- 11-month deployment timeline
+- No disruption to current operations
+- Regulatory compliance requirements
+
+### Data Constraints
+- Limited aerial excavator imagery availability
+- Domain transfer from ground to aerial perspective
+- Annotation quality and consistency requirements
+
+---
+
+## Related Sections
+
+<div className="grid gap-4 mt-8">
+
+<Card href="/project-overview/dictionary-of-terms" title="📚 Dictionary of Terms" icon="">
+  Key terminology, definitions, and technical vocabulary used throughout the project
+</Card>
+
+<Card href="/project-overview/technical-data" title="🔧 Technical Architecture" icon="">
+  System design, specifications, technology stack, and integration requirements
+</Card>
+
+</div>

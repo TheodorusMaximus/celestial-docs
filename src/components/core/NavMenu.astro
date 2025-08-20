@@ -1,32 +1,26 @@
 ---
-import { Button } from "@/components/ui/button";
-
 import { menu_items } from "@/config";
 
 const pathname = new URL(Astro.request.url).pathname;
 const pathname_part = pathname.split("/")[1];
 ---
 
-<div class="flex gap-4">
+<div class="flex gap-6">
   {
     menu_items.map((item) => (
-      <a href={item.href}>
-        <Button
-          variant={
-            "/" + pathname_part === "/" + item.href.split("/")[1]
-              ? "secondary"
-              : "ghost"
+      <a 
+        href={item.href}
+        class={`
+          px-3 py-2 text-sm font-medium transition-colors duration-200 hover:text-foreground no-underline
+          ${
+            (pathname === "/" && item.href === "/") ||
+            (pathname !== "/" && "/" + pathname_part === "/" + item.href.split("/")[1])
+              ? "text-foreground border-b-2 border-red-500"
+              : "text-muted-foreground hover:text-foreground"
           }
-          key={item.href}
-          className={
-            "/" + pathname_part === "/" + item.href.split("/")[1]
-              ? "text-foreground"
-              : "text-muted-foreground"
-          }
-          client:load
-        >
-          {item.title}
-        </Button>
+        `}
+      >
+        {item.title}
       </a>
     ))
   }

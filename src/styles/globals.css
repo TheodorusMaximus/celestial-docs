@@ -4,68 +4,68 @@
 
 @layer base {
   :root {
-    --background: 220 23% 95%; /* Base */
-    --foreground: 234 16% 35%; /* Text */
-    --muted: 220 23% 95%; /* Base */
-    --muted-foreground: 232 10% 53%; /* Overlay 2 */
-    --popover: 220 21% 89%; /* Crust */
-    --popover-foreground: 234 16% 35%; /* Text */
-    --card: 220 22% 92%; /* Mantle */
-    --card-foreground: 234 16% 35%; /* Text */
-    --border: 223 16% 83%; /* Surface 0 */
-    --input: 223 16% 83%; /* Surface 0 */
-    --primary: 220 91% 54%; /* Blue */
-    --primary-foreground: 220 23% 95%; /* Base */
-    --secondary: 220 91% 85%; /* Blue Modified */
-    --secondary-foreground: 234 16% 35%; /* Text */
-    --accent: 234 16% 35%; /* Text */
-    --accent-foreground: 220 23% 95%; /* Base */
-    --destructive: 347 87% 44%; /* Red */
-    --destructive-foreground: 220 23% 95%; /* Base */
-    --ring: 220 91% 54%; /* Blue */
-    --radius: 0.3rem;
+    --background: 0 0% 98%; /* Light grey/white */
+    --foreground: 210 15% 20%; /* Dark navy text */
+    --muted: 210 10% 95%; /* Light grey */
+    --muted-foreground: 210 10% 45%; /* Medium grey */
+    --popover: 0 0% 100%; /* Pure white */
+    --popover-foreground: 210 15% 20%; /* Dark navy */
+    --card: 0 0% 100%; /* Pure white */
+    --card-foreground: 210 15% 20%; /* Dark navy */
+    --border: 210 10% 85%; /* Light grey border */
+    --input: 210 10% 90%; /* Input grey */
+    --primary: 4 84% 58%; /* #EF4136 Red */
+    --primary-foreground: 0 0% 100%; /* White text on red */
+    --secondary: 210 50% 25%; /* Navy */
+    --secondary-foreground: 0 0% 100%; /* White text on navy */
+    --accent: 210 10% 50%; /* Medium grey */
+    --accent-foreground: 0 0% 100%; /* White text */
+    --destructive: 4 84% 58%; /* Same red as primary */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --ring: 4 84% 58%; /* Red focus ring */
+    --radius: 0.5rem;
 
-    --Pink: 316 73% 69%;
-    --Purple: 266 85% 58%;
-    --Red: 347 87% 44%;
-    --Orange: 22 99% 52%;
-    --Yellow: 35 77% 49%;
-    --Green: 109 58% 40%;
-    --Teal: 183 74% 35%;
-    --Sky: 197 97% 46%;
-    --Blue: 220 91% 54%;
+    /* Tech color palette */
+    --tech-red: 4 84% 58%; /* #EF4136 */
+    --tech-navy: 210 50% 25%; /* Navy */
+    --tech-dark-navy: 210 60% 15%; /* Darker navy */
+    --tech-grey-light: 210 10% 90%; /* Light grey */
+    --tech-grey-medium: 210 10% 50%; /* Medium grey */
+    --tech-grey-dark: 210 15% 25%; /* Dark grey */
+    --tech-black: 0 0% 8%; /* Near black */
+    --tech-white: 0 0% 100%; /* Pure white */
   }
 
   .dark {
-    --background: 232 23% 18%;
-    --foreground: 227 68% 88%;
-    --muted: 232 23% 18%;
-    --muted-foreground: 228 20% 65%;
-    --popover: 236 23% 12%;
-    --popover-foreground: 227 68% 88%;
-    --card: 233 23% 15%;
-    --card-foreground: 227 68% 88%;
-    --border: 230 19% 26%;
-    --input: 230 19% 26%;
-    --primary: 220 83% 75%;
-    --primary-foreground: 232 23% 18%;
-    --secondary: 220 83% 85%;
-    --secondary-foreground: 232 23% 18%;
-    --accent: 227 68% 88%;
-    --accent-foreground: 232 23% 18%;
-    --destructive: 351 74% 73%;
-    --destructive-foreground: 232 23% 18%;
-    --ring: 267 83% 80%;
+    --background: 210 60% 8%; /* Dark navy background */
+    --foreground: 0 0% 95%; /* Light text */
+    --muted: 210 50% 12%; /* Dark muted */
+    --muted-foreground: 210 10% 65%; /* Light muted text */
+    --popover: 210 60% 10%; /* Dark popover */
+    --popover-foreground: 0 0% 95%; /* Light popover text */
+    --card: 210 50% 10%; /* Dark card */
+    --card-foreground: 0 0% 95%; /* Light card text */
+    --border: 210 30% 20%; /* Dark border */
+    --input: 210 30% 15%; /* Dark input */
+    --primary: 4 84% 58%; /* Same red #EF4136 */
+    --primary-foreground: 0 0% 100%; /* White text on red */
+    --secondary: 210 10% 80%; /* Light grey for dark mode */
+    --secondary-foreground: 210 60% 15%; /* Dark text on light */
+    --accent: 210 10% 70%; /* Light accent */
+    --accent-foreground: 210 60% 15%; /* Dark text */
+    --destructive: 4 84% 58%; /* Same red */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --ring: 4 84% 58%; /* Red focus ring */
 
-    --Pink: 316 74% 85%;
-    --Purple: 267 83% 80%;
-    --Red: 351 74% 73%;
-    --Orange: 21 86% 73%;
-    --Yellow: 40 70% 78%;
-    --Green: 105 48% 72%;
-    --Teal: 171 47% 69%;
-    --Sky: 189 59% 73%;
-    --Blue: 220 83% 75%;
+    /* Tech color palette for dark mode */
+    --tech-red: 4 84% 58%; /* #EF4136 */
+    --tech-navy: 210 10% 80%; /* Light grey in dark mode */
+    --tech-dark-navy: 210 60% 8%; /* Very dark navy */
+    --tech-grey-light: 210 30% 20%; /* Dark grey */
+    --tech-grey-medium: 210 10% 50%; /* Medium grey */
+    --tech-grey-dark: 210 10% 80%; /* Light grey in dark */
+    --tech-black: 0 0% 100%; /* White in dark mode */
+    --tech-white: 0 0% 8%; /* Dark in dark mode */
   }
 }
 
@@ -74,32 +74,41 @@
     @apply border-border scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
   }
 }
 
 h1 {
-  @apply scroll-m-20 text-4xl font-bold lg:text-5xl tracking-tight pt-2;
+  @apply scroll-m-20 text-4xl font-bold lg:text-5xl tracking-tight pt-2 font-display;
 }
 
 h2 {
-  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-wide transition-colors first:mt-0;
+  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-wide transition-colors first:mt-0 font-display;
 }
 
 h3 {
-  @apply mt-3 scroll-m-20 text-2xl font-semibold tracking-tight;
+  @apply mt-3 scroll-m-20 text-2xl font-semibold tracking-tight font-display;
 }
 
 h4 {
-  @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  @apply scroll-m-20 text-xl font-semibold tracking-tight font-display;
 }
 
 p {
-  @apply leading-7 [&:not(:first-child)]:mt-2;
+  @apply leading-7 [&:not(:first-child)]:mt-2 font-sans;
 }
 
 a {
   @apply underline underline-offset-4 hover:text-primary;
+}
+
+/* Remove underlines from navigation links */
+nav a,
+.navigation a,
+[data-navigation] a,
+.side-nav a,
+.nav-menu a {
+  @apply no-underline;
 }
 
 blockquote {
@@ -193,7 +202,7 @@ td {
 }
 
 .prose h1 {
-  @apply italic;
+  @apply italic font-display;
 }
 
 .prose h4 {

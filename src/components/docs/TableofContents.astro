@@ -12,14 +12,28 @@ const { class: className } = Astro.props;
 
 {
   hasToC && (
-    <div class:list={["relative", className]}>
-      <h2 class="text-xl border-none italic">On This Page</h2>
-      <ul class="list-none m-0">
+    <div class:list={["relative bg-muted/30 rounded-lg border border-border/40 p-4", className]}>
+      <h2 class="text-base font-semibold text-foreground border-none mb-4 flex items-center gap-2">
+        <span class="w-1 h-4 bg-primary rounded-full"></span>
+        On This Page
+      </h2>
+      <ul class="list-none m-0 space-y-1">
         {toc.map((heading) => (
-          <li class=`${heading.depth === 2 ? "font-semibold" : "text-muted-foreground"}`>
-            <a href={`#${heading.slug}`} class="text-sm w-full leading-none no-underline">
+          <li class="relative">
+            <a 
+              href={`#${heading.slug}`} 
+              class={`
+                block text-sm py-1.5 px-2 rounded-md transition-all duration-200 no-underline
+                hover:bg-background/60 hover:text-foreground
+                ${heading.depth === 2 
+                  ? "font-medium text-foreground" 
+                  : "text-muted-foreground ml-3 text-xs"
+                }
+              `}
+            >
+              {heading.depth > 2 && <span class="mr-2 text-muted-foreground/60">•</span>}
               {heading.text}
-              </a>
+            </a>
           </li>
         ))}
       </ul>

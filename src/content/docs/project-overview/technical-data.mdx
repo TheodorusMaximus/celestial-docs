@@ -1,0 +1,219 @@
+---
+title: "Technical Architecture"
+description: "Technical specifications and system design for PipelineVision"
+author: "Theodore Zipoy"
+publishDate: 2025-01-20
+tags: ["technical", "architecture", "computer-vision", "edge-computing"]
+draft: false
+showBreadcrumbs: true
+showTableOfContents: true
+showNavigationLinks: true
+---
+
+## System Architecture
+
+### High-Level Design
+
+PipelineVision employs a modular, edge-first architecture optimized for real-time threat detection during aerial pipeline inspection flights.
+
+```
+┌─────────────────────────────────────────────────┐
+│            Aircraft Pod System                   │
+├─────────────────────────────────────────────────┤
+│  Sony ILX-LR1 Camera → Video Capture Module     │
+│            ↓                                     │
+│  NVIDIA Jetson AGX Orin Edge Computer           │
+│  ├─ Frame Processing Pipeline                   │
+│  ├─ YOLOv8 Inference Engine                     │
+│  ├─ GPS/KMZ Validation Module                   │
+│  └─ Alert Generation System                     │
+│            ↓                                     │
+│  iPad Interface (Operator Alerts)               │
+└─────────────────────────────────────────────────┘
+```
+
+### Core Technology Stack
+
+#### Computer Vision Pipeline
+- **Model Architecture**: YOLOv8 (You Only Look Once v8)
+  - Pre-trained on COCO dataset
+  - Fine-tuned on DOTA aerial imagery (11,268 images)
+  - Enhanced with AIDCON construction equipment (9,563 objects)
+- **Performance Metrics**: 93.8% mAP@0.5 on aerial vehicle detection
+- **Inference Framework**: PyTorch with TensorRT optimization
+
+#### Edge Computing Platform
+- **Hardware**: NVIDIA Jetson AGX Orin
+  - 275 TOPS AI performance
+  - 32GB/64GB LPDDR5 memory
+  - Power envelope: 15W-60W configurable
+- **Operating System**: JetPack 5.x (Ubuntu-based)
+- **Container Runtime**: Docker with NVIDIA Container Toolkit
+
+#### Video Processing
+- **Input Source**: Sony ILX-LR1 Industrial Camera
+  - Resolution: 12MP (4096 x 3000)
+  - Frame Rate: 30-60 FPS capture
+  - Interface: USB3 Vision / GigE Vision
+- **Processing Pipeline**:
+  - Frame capture and buffering
+  - Resolution optimization (1920x1080 for inference)
+  - Color space normalization
+  - Rolling window detection
+
+## Software Architecture
+
+### Core Modules
+
+#### 1. Video Capture Module
+```python
+class VideoCapture:
+    - Initialize camera connection
+    - Handle frame buffering
+    - Manage dropped frames
+    - Synchronize with GPS timestamps
+```
+
+#### 2. Detection Engine
+```python
+class ThreatDetector:
+    - Load YOLOv8 model
+    - Run inference on frames
+    - Apply confidence thresholds
+    - Filter by threat classes
+```
+
+#### 3. Alert System
+```python
+class AlertManager:
+    - Generate bounding boxes
+    - Create threat notifications
+    - Log operator feedback
+    - Export detection reports
+```
+
+#### 4. Integration Layer
+```python
+class VanGuardIntegration:
+    - iPad UI communication
+    - GPS/KMZ validation
+    - Operational logging
+    - System health monitoring
+```
+
+## Data Architecture
+
+### Training Data Strategy
+
+#### Multi-Tier Approach
+1. **Foundation Layer**: DOTA Dataset
+   - 11,268 aerial images
+   - 15 object categories
+   - Provides aerial perspective baseline
+
+2. **Domain Layer**: AIDCON Dataset
+   - 9,563 construction equipment objects
+   - Ground-level imagery for domain transfer
+   - Excavator-specific annotations
+
+3. **Custom Layer**: VanGuard Collection
+   - Pipeline corridor specific imagery
+   - Operator-validated threat examples
+   - Continuous improvement pipeline
+
+### Model Optimization
+
+#### Proxy Detection Strategy
+- Use "truck" class as proxy for excavator detection
+- Validate with ≥70% correlation threshold
+- Progressive refinement with custom data
+
+#### Performance Targets
+- **Inference Speed**: Over 10 FPS sustained
+- **Latency**: Under 100ms per frame
+- **Memory Usage**: Under 4GB GPU memory
+- **Model Size**: Under 200MB optimized
+
+## Deployment Architecture
+
+### MVP Progression
+
+#### MVP-0: Cloud Proof-of-Concept
+- **Infrastructure**: AWS/Azure GPU instances
+- **Data Source**: Archived flight footage
+- **Validation**: Proxy strategy effectiveness
+- **Timeline**: Months 1-2
+
+#### MVP-1: Edge Demonstration
+- **Infrastructure**: Laptop with NVIDIA GPU
+- **Data Source**: Live webcam or recorded video
+- **Validation**: Real-time performance metrics
+- **Timeline**: Months 2-3
+
+#### MVP-2: Aircraft Integration
+- **Infrastructure**: Jetson AGX Orin on pod
+- **Data Source**: Sony ILX-LR1 live feed
+- **Validation**: Operational flight testing
+- **Timeline**: Months 4-7
+
+## Performance Specifications
+
+### Real-Time Requirements
+- **Frame Processing**: 10-15 FPS minimum
+- **Detection Latency**: Under 100ms end-to-end
+- **Alert Generation**: Under 500ms from detection
+- **System Uptime**: Over 99% during flights
+
+### Accuracy Targets
+- **Recall (Sensitivity)**: Over 90% for critical threats
+- **Precision**: Over 80% to minimize false positives
+- **Actionable Intelligence Rate**: Over 85% operator confirmation
+- **F1 Score**: Over 0.85 for primary threat classes
+
+### Resource Constraints
+- **Power Budget**: 60W maximum on pod
+- **Thermal Envelope**: -20°C to 50°C operation
+- **Vibration Tolerance**: MIL-STD-810G compliance
+- **Storage**: 512GB NVMe for model and logs
+
+## Integration Specifications
+
+### VanGuard System Interfaces
+
+#### Camera Integration
+- Protocol: USB3 Vision / GigE Vision
+- Resolution: 4096x3000 native, 1920x1080 processed
+- Frame Rate: 30 FPS capture, 10-15 FPS inference
+- Synchronization: GPS timestamp alignment
+
+#### iPad Interface
+- Communication: WebSocket/REST API
+- Data Format: JSON with base64 image regions
+- Update Rate: 1-2 Hz for alerts
+- Feedback Loop: Operator confirm/dismiss actions
+
+#### GPS/KMZ Integration
+- Coordinate System: WGS84
+- Corridor Validation: ±100m from centerline
+- Geofencing: Configurable threat zones
+- Logging: Timestamped JSON with location
+
+## Security & Reliability
+
+### Data Security
+- **Encryption**: AES-256 for stored data
+- **Access Control**: Role-based authentication
+- **Audit Logging**: Complete detection history
+- **Data Retention**: 90-day operational logs
+
+### System Reliability
+- **Redundancy**: Dual-model fallback strategy
+- **Error Handling**: Graceful degradation
+- **Health Monitoring**: Real-time system metrics
+- **Recovery**: Automatic restart on failure
+
+### Compliance Considerations
+- **FAA**: Part 135 operational requirements
+- **EASA**: Supplemental Type Certificate pathway
+- **Privacy**: No PII collection or storage
+- **Export Control**: ITAR/EAR compliance verified
