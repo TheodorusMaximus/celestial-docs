@@ -19,8 +19,8 @@ This page breaks down the key hypotheses and business questions driving the Pipe
 **If we add real-time AI threat detection to VanGuard's existing platform, we will significantly enhance pipeline safety by proactively identifying physical threats.**
 
 This breaks into two key validation areas:
-- **Build the Right Thing**: Are we solving a valuable problem?
-- **Build the Thing Right**: Can we deliver a robust solution?
+- **Build the Right Thing**: Are we solving a valuable problem, how do we know?
+- **Build the Thing Right**: Can we deliver a robust solution in a lean way?
 
 ## Hypothesis Hierarchy
 
@@ -53,7 +53,7 @@ Confirms the core detection concept and avoids wasted effort on custom hardware 
 <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-4">
 **MVP-0 (Cloud Proof of Concept)**
 - Test YOLOv8 on archived VanGuard footage
-- Use "truck" or other pretrained class as proxy to prove viability
+- Use pretrained classes as proxy to prove viability
 - Validate detection confidence thresholds
 </div>
 
@@ -66,10 +66,10 @@ Confirms the core detection concept and avoids wasted effort on custom hardware 
 ---
 
 ### H2: Enable Real-Time Edge Processing on Live Video
-**Strategic Objective**: Demonstrate that threat detection can run locally at full flight resolution and frame rate.
+**Strategic Objective**: Demonstrate that threat detection can run locally at flight resolution and frame rate.
 
 #### Atomic Hypothesis
-A Jetson-class edge device can process each video frame in 200ms or less while maintaining 70% or higher recall and 5% or fewer false positives.
+A Jetson-class edge device or similar hardware can process each video frame in 200ms or less while maintaining 70% or higher recall and 5% or fewer false positives.
 
 #### Physical Integration Requirements
 The edge device must fit within existing aircraft constraints for power, space, and cooling without modifications.
@@ -87,7 +87,6 @@ Ensures the system can deliver instant alerts in flight without cloud dependency
 </div>
 
 #### Success Criteria
-- **Processing Speed**: 200ms or less per frame
 - **Sustained Performance**: 10 FPS or higher for 30+ minute sessions
 - **Detection Performance**: 70% or higher recall, 5% or fewer false positives
 - **Resource Usage**: Less than 80% GPU utilization, less than 70% CPU utilization
@@ -149,8 +148,8 @@ Builds operator trust—without this level of accuracy, the system becomes a dis
 
 ---
 
-### H5: Deliver Operational System in 7 Months
-**Strategic Objective**: Follow a phased roadmap—cloud proof → edge demo → production integration—to hand over a flight-ready AI pod system within 7 months.
+### H5: Rapidlu Deliver Operational System
+**Strategic Objective**: Follow a phased roadmap—cloud proof → edge demo → production integration—to hand over a flight-ready AI pod system. 
 
 #### Atomic Hypothesis
 Each MVP phase can be completed within defined timeframes with clear go/no-go criteria, allowing rapid pivots and on-time delivery.
@@ -191,16 +190,6 @@ Aligns with VanGuard's planning cycles and ensures timely ROI realization while 
 **Low Risk, High Impact**: H4 (Actionable Intelligence), H5 (Timeline)
 - Execution and optimization challenges
 - Success depends on previous hypothesis validation
-
-### Testing Approach
-
-Each hypothesis follows a structured validation approach:
-
-1. **Define Metrics**: Quantitative success criteria
-2. **Design Tests**: Specific experiments to validate/invalidate
-3. **Collect Data**: Systematic measurement and logging
-4. **Analyze Results**: Statistical significance and confidence intervals
-5. **Make Decisions**: Clear go/no-go criteria for advancement
 
 ### Interconnected Dependencies
 
