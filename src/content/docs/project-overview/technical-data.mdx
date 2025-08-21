@@ -135,7 +135,7 @@ graph LR
 ## Core Technology Stack
 
 ### AI & Computer Vision Pipeline
-- **Model Architecture**: YOLOv8n (Nano) for edge optimization
+- **Model Architecture**: YOLOv8x for edge optimization
   - **Base Training**: COCO dataset (80 classes, 330K images)
   - **Aerial Enhancement**: DOTA dataset fine-tuning (11,268 images)
   - **Domain Specialization**: AIDCON construction equipment (9,563 objects)
@@ -147,8 +147,8 @@ graph LR
 
 ### Edge Computing Platform
 - **Hardware**: NVIDIA Jetson AGX Orin (64GB Configuration) or similar hardware
-  - **AI Performance**: 275 TOPS (INT8), 68 TOPS (FP16)
-  - **Memory**: 64GB LPDDR5 (selected for model caching and video buffering)
+  - **AI Performance**: TOPS TBD
+  - **Memory**: TBD (selected for model caching and video buffering)
 - **Software Stack**:
   - **OS**: JetPack v5.1 (Ubuntu-based)
 - **Container Runtime**: Docker with NVIDIA Container Toolkit
@@ -171,36 +171,6 @@ graph LR
 
 ## Deployment Architecture & MVP Progression
 
-### Strategic Deployment Approach
-
-Our three-phase MVP methodology balances technical risk, development speed, and capital efficiency—validating core assumptions before major hardware investments while building toward production deployment.
-
-```mermaid
-gantt
-    title PipelineVision MVP Deployment Timeline
-    dateFormat  YYYY-MM-DD
-    axisFormat  %m-%d
-    
-    section MVP-0: Cloud PoC
-    Infrastructure Setup     :task1, 2024-01-01, 2w
-    Dataset Validation      :task2, after task1, 2w
-    Proxy Strategy Testing  :task3, after task1, 2w
-    Performance Baseline    :task4, after task3, 1w
-    
-    section MVP-1: Edge Demo
-    Hardware Procurement    :task5, after task4, 1w
-    Custom Data Collection  :task6, after task5, 3w
-    Model Fine-tuning      :task7, after task6, 2w
-    Edge Optimization      :task8, after task7, 2w
-    Live Demo System       :task9, after task8, 1w
-    
-    section MVP-2: Production
-    VanGuard Integration   :task10, after task9, 4w
-    Field Testing         :task11, after task10, 3w
-    Operator Training     :task12, after task11, 2w
-    Production Hardening  :task13, after task12, 3w
-    Final Deployment      :task14, after task13, 1w
-```
 
 #### MVP-0: Cloud Proof-of-Concept (Month 1)
 **Investment**: $5,000 | **Effort**: 70 hours | **Risk Level**: Low
@@ -221,7 +191,7 @@ gantt
 - **Success Gate**: Real-time edge performance validated before aircraft integration
 
 #### MVP-2: Aircraft Integration (Months 4-6)
-**Investment**: $TBD | **Effort**: 140 hours | **Risk Level**: Medium-High
+**Investment**: $TBD | **Effort**: TBD hours | **Risk Level**: Medium-High
 
 - **Infrastructure**: Production Jetson AGX Orin integrated into Falcon pod platform
 - **Data Source**: Sony ILX-LR1 live feed with full GPS/KMZ correlation
@@ -233,7 +203,7 @@ gantt
 
 ## Testing & Validation Framework
 
-### Multi-Layer Testing Strategy
+### Multi-Layer Testing Strategy (In-Progress)
 
 Our testing approach ensures system reliability across development, integration, and operational phases while maintaining the high standards required for mission-critical aviation systems.
 
@@ -296,61 +266,6 @@ graph TB
 
 ---
 
-## Risk Management & Mitigation Strategies
-
-### Technical Risk Framework
-
-Our risk management approach aligns with the phased MVP methodology, providing clear pivot points and fallback strategies at each development stage.
-
-| Risk Category | Probability | Impact | Mitigation Strategy |
-|---------------|-------------|--------|-------------------|
-| **Data Domain Gap** | High (60%) | Medium | Multi-dataset training + synthetic augmentation |
-| **Edge Performance** | Medium (30%) | High | Model compression + hybrid processing fallback |
-| **Integration Complexity** | Medium (35%) | Medium | Phased integration + standalone tablet fallback |
-| **Operator Adoption** | Low (20%) | High | Extensive user testing + training programs |
-
-#### Risk #1: Data Domain Gap (MVP-0 Phase)
-**Challenge**: Public aerial datasets may not represent VanGuard's specific operational environment  
-**Indicators**: &lt;70% proxy detection correlation in validation testing  
-**Mitigation**: 
-- Implement synthetic data augmentation pipeline
-- Expedite custom VanGuard data collection
-- Develop robust domain adaptation techniques
-- Maintain multiple model architectures for comparison
-
-#### Risk #2: Edge Compute Performance (MVP-1 Phase)
-**Challenge**: Jetson AGX Orin may not achieve target latency per frame  
-**Indicators**: Sustained performance below 15 FPS or excessive power consumption  
-**Mitigation**:
-- Apply model quantization and pruning techniques
-- Upgrade to higher-performance edge hardware if necessary
-- Optimize TensorRT inference pipeline
-
-#### Risk #3: Integration Complexity (MVP-2 Phase)
-**Challenge**: Unexpected API or hardware compatibility issues with Falcon pod systems  
-**Indicators**: Communication failures or workflow disruption during testing  
-**Mitigation**:
-- Develop standalone tablet interface as fallback
-- Implement incremental integration with extensive testing
-- Maintain extended integration timeline buffer
-- Create comprehensive rollback procedures
-
-### System Reliability & Fault Tolerance
-
-#### Redundancy Architecture
-- **Dual-Model Strategy**: Primary YOLOv8 model with lightweight backup for fallback
-- **Hardware Redundancy**: Automatic failover to CPU-only processing if GPU fails
-- **Communication Redundancy**: Multiple iPad interface protocols (WebSocket → REST → Local)
-- **Data Redundancy**: Local storage with multiple backup copies and integrity checking
-
-#### Error Handling & Recovery
-- **Graceful Degradation**: System continues operation with reduced functionality
-- **Automatic Recovery**: Self-healing capabilities with diagnostic logging
-- **Health Monitoring**: Real-time system metrics with proactive alerting
-- **Manual Override**: Operator controls for system disable/enable
-
----
-
 ## Future Roadmap & Scaling Opportunities
 
 ### Advanced AI Capabilities
@@ -381,12 +296,12 @@ Our risk management approach aligns with the phased MVP methodology, providing c
   Complete proposal with MVP phases, pricing, and engagement model
 &lt;/Card&gt;
 
-&lt;Card href="/project-planning/risk-management" title="⚠️ Risk Management Framework" icon=""&gt;
-  Detailed risk assessment and mitigation strategies
+&lt;Card href="/project-planning" title="📋 Implementation Planning" icon=""&gt;
+  Comprehensive project planning with MVP phases and timeline
 &lt;/Card&gt;
 
-&lt;Card href="/project-planning/timeline" title="📅 Project Timeline" icon=""&gt;
-  Implementation schedule with milestones and dependencies
+&lt;Card href="/library" title="📚 Research Library" icon=""&gt;
+  Academic research, competitive analysis, and technical references
 &lt;/Card&gt;
 
 &lt;Card href="/project-overview/core-hypotheses" title="🧪 Core Hypotheses" icon=""&gt;
