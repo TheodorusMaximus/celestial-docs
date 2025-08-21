@@ -81,11 +81,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
 
   // Handle form submission
-  function handleLogin(event) {
+  function handleLogin(event: Event) {
     event.preventDefault();
     
-    const password = document.getElementById('password').value;
+    const passwordInput = document.getElementById('password') as HTMLInputElement;
     const errorDiv = document.getElementById('errorMessage');
+    
+    if (!passwordInput || !errorDiv) {
+      console.error('Required form elements not found');
+      return;
+    }
+    
+    const password = passwordInput.value;
     
     if (password === CORRECT_PASSWORD) {
       // Create session
@@ -103,13 +110,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       errorDiv.classList.remove('hidden');
       
       // Clear password field
-      document.getElementById('password').value = '';
+      passwordInput.value = '';
     }
   }
 
   // Initialize
   checkAuth();
-  document.getElementById('loginForm').addEventListener('submit', handleLogin);
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
 </script>
 
 <style>
