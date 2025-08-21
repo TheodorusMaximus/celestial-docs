@@ -7,7 +7,7 @@ import { remarkMermaid } from "./src/lib/remark-mermaid.js";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://celestialdocs.hyperoot.dev",
+  site: "https://pipelinevision.netlify.app",
   markdown: {
     smartypants: true,
     syntaxHighlight: "shiki",

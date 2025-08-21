@@ -14,18 +14,12 @@ import { Card } from '@/components/docs/Card';
 
 ## Executive Summary
 
-We propose to deliver a proof-of-concept aerial pipeline inspection system that integrates high-resolution imagery from VanGuard's Sony ILX-LR1 industrial camera with real-time AI inference (YOLOv8) and geospatial tagging. Through our proven three-phase MVP approach, we will deliver a bench-ready solution, progress to edge processing, and culminate in a fully integrated flight-ready system.
+The core objective of this engagement is to deliver a proof-of-concept aerial pipeline inspection system that integrates high-resolution imagery from VanGuard's Sony ILX-LR1 industrial camera with real-time AI inference (YOLOv8) and geospatial tagging. This will be achieved through a three-phase MVP approach, we will deliver a bench-ready solution, progress to edge processing, and culminate in a fully integrated flight-ready system.
 
 ### Mission Alignment
 
-**PipelineVision accelerates VanGuard's pipeline safety leadership** by integrating advanced computer vision into your proven Falcon pod system. Our data-driven MVP roadmap validates core AI concepts, then iterates through live edge demos to in-flight deployments—balancing speed, cost, and risk while maintaining your competitive advantage.
+**PipelineVision accelerates VanGuard's pipeline safety leadership** by integrating advanced computer vision into your proven Falcon pod system. The planned data-driven MVP roadmap validates core AI concepts, then iterates through live edge demos, and lastly in-flight deployments—balancing speed, cost, and risk. 
 
-### Value Proposition
-
-- **$7.84M Annual Savings** through improved threat detection
-- **4,208% ROI** over 3 years ($21.8M NPV)
-- **First-to-Market** real-time AI threat detection for pipeline inspection
-- **Zero Workflow Disruption** to existing Falcon pod and iPad operations
 
 ## Project Understanding
 
@@ -35,12 +29,12 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 ### Key Challenges Addressed
 - **Data Scarcity**: No existing labeled dataset for pipeline-specific aerial threats
 - **Seasonal Variability**: Four-season operational requirements with varying lighting, foliage, weather
-- **Real-time Processing**: Edge computing constraints for in-flight inference
+- **Real-time Processing**: Edge computing constraints for in-flight inference and related hardware limitations
 - **System Integration**: Synchronizing video, GPS, and AI outputs with existing iPad interface
 - **Operational Constraints**: Weight, power, connectivity, and vibration tolerance requirements
 
 ### Success Criteria
-- **MVP-0**: Desktop/cloud demo processing archived footage with geo-tagged detections at 10-30 FPS
+- **MVP-0**: Desktop/cloud demo processing archived footage and pretrained models and classes
 - **MVP-1**: Custom dataset collection and model fine-tuning for pipeline-specific threats
 - **MVP-2**: Production system achieving Over 85% Actionable Intelligence Rate and `Over 99`% uptime
 
@@ -66,8 +60,8 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - **AWS/GCP**: A100 GPU instances for cloud processing
 
 **Dataset Validation**
-- Evaluate public aerial datasets (COCO, DOTA, xView) for "trees," "vehicles," "people"
-- Test proxy strategy using "truck" class as excavator detection proxy
+- Evaluate public aerial datasets (COCO, DOTA, xView, ) for "trees," "vehicles," "people"
+- Test proxy strategy using "light / heavy vehicle" class as excavator detection proxy
 - Assess domain transfer effectiveness from public to pipeline-specific imagery
 
 **Deliverables**
@@ -78,7 +72,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 5. **Go/No-Go Analysis**: Data-driven recommendation for MVP-1 advancement
 
 #### Success Metrics
-- **Detection Rate**: 70% or higher recall on excavator proxy validation
+- **Detection Rate**: 70% or higher recall on proxy validations (light / heavy vehicle)
 - **Processing Speed**: 10-30 FPS sustained on cloud infrastructure
 - **False Positive Rate**: Under 30% on non-threat objects
 - **Domain Transfer**: Measurable performance on VanGuard archived footage
@@ -88,14 +82,15 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 ### Phase 2: MVP-1 - Custom Dataset & Edge Demo
 
 **Timeline**: Month 2-3 (6 weeks)  
-**Investment**: $5,000 
+**Investment**: $5,000-$7,500
 **Estimated Effort**: 100 hours
 
 #### Core Activities
 
 **Custom Data Collection**
+- Create strategy to assess and close gas in data and pipeline
 - Plan and execute systematic aerial data collection across pipeline corridors
-- Capture representative imagery from multiple seasons and environmental conditions
+- Capture representative imagery from multiple seasons and environmental conditions, synthetic data augmentation, and other methods
 - Target volume: 500-1,000 professionally annotated images
 
 **Model Fine-Tuning**
@@ -104,19 +99,19 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - Implement transfer learning with performance tracking against baseline
 
 **Edge Hardware Integration**
-- Deploy on NVIDIA Jetson AGX Orin or RTX-based mini-PC
+- Deploy on NVIDIA Jetson AGX Orin or RTX-based mini-PC (3080)
 - Optimize for real-time processing: 10-15 FPS target performance
-- Implement power management and thermal monitoring
+- Implement power management and thermal monitoring to determine true hardware requirements 
 
 **Live Processing Pipeline**
 - Real-time video capture and preprocessing
 - Edge AI inference with optimized model deployment
-- Live telemetry overlay and alert generation system
+- Telemetry sync and data output
 
 **Deliverables**
 1. **Custom Annotated Dataset**: 500-1,000 professionally labeled images
 2. **Fine-Tuned Model Package**: Optimized YOLOv8 model with training logs
-3. **Edge Hardware Prototype**: Configured Jetson system with live processing
+3. **Edge Hardware Prototype**: Configured Jetson / RTX system with live processing
 4. **Live Demo System**: Real-time detection with alert overlay interface
 5. **Performance Analysis**: Comprehensive comparison against baseline model
 
@@ -131,19 +126,20 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 ### Phase 3: MVP-2 - Production Integration
 
 **Timeline**: Months 4-6 (12 weeks)  
-**Investment**: $17,500  
+**Investment**: $TBD  
 **Estimated Effort**: 140 hours
 
 #### Core Activities
 
 **VanGuard System Integration**
-- Full Falcon pod deployment on NVIDIA Jetson AGX Orin
+- Full Falcon pod deployment on NVIDIA Jetson AGX Orin or similar hardware
 - iPad alert integration via WebSocket API and JSON messaging
 - GPS/KMZ geofence validation with pipeline corridor mapping
+- DC - DC power system and supporting infrastructure / hardware design
 
 **Production Hardening**
 - Implement robust error handling and automatic recovery systems
-- Deploy containerized system with Docker for reliability
+- Deploy containerized system with Docker or similar for reliability
 - Establish continuous monitoring and health check systems
 
 **Operator Workflow Integration**
@@ -178,17 +174,16 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 | 1-2 | MVP-0 | Infrastructure design & dataset selection | Architecture diagram & dataset evaluation | 30 |
 | 3-4 | MVP-0 | Cloud pipeline development & model testing | Proof-of-concept demo & performance report | 30 |
 | 5-6 | MVP-1 | Custom data collection & annotation | Annotated dataset & annotation pipeline | 40 |
-| 7-8 | MVP-1 | Model fine-tuning & edge deployment | Fine-tuned model & edge hardware prototype | 35 |
-| 9-10 | MVP-1 | Live processing system & optimization | Live demo system & performance analysis | 25 |
-| 11-14 | MVP-2 | VanGuard integration & iPad interface | Production system & iPad integration | 60 |
-| 15-18 | MVP-2 | Testing, validation & operator training | Field test report & training materials | 50 |
-| 19-22 | MVP-2 | Production hardening & deployment | Final system delivery & documentation | 30 |
+| 7-8 | MVP-1 | Model fine-tuning & edge deployment | Fine-tuned model & edge hardware prototype | TBD |
+| 9-10 | MVP-1 | Live processing system & optimization | Live demo system & performance analysis | TBD |
+| 11-14 | MVP-2 | VanGuard integration & iPad interface | Production system & iPad integration | TBD |
+| 15-18 | MVP-2 | Testing, validation & operator training | Field test report & training materials | TBD |
+| 19-22 | MVP-2 | Production hardening & deployment | Final system delivery & documentation | TBD |
 
-**Total Effort**: 300 hours over 22 weeks (5.5 months)
 
 ### Critical Path Dependencies
 
-1. **Data Validation** (Weeks 1-4): Must confirm proxy strategy effectiveness before hardware investment
+1. **Data Validation** (Weeks 1-4): Must confirm viability of our strategy before hardware investment
 2. **Custom Dataset** (Weeks 5-8): Required for meaningful model fine-tuning and validation
 3. **Edge Performance** (Weeks 7-10): Must achieve real-time processing before integration
 4. **VanGuard Integration** (Weeks 11-18): Critical for operational deployment success
@@ -197,28 +192,16 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 
 ### Time & Materials Framework
 
-**Consulting Rate**: $75/hour  
-**Monthly Billing Cap**: $5,000 (~67 hours)  
+**Consulting Rate**: $70/hour  
+**Monthly Billing Cap**: $5,000 (~70 hours)  
 **Total Project Investment**: $30,000 over 5.5 months
 
 #### Billing Structure
 - **Monthly Invoicing**: Detailed time logs and deliverable status
 - **Unused Hours**: Roll over to following months for flexibility
 - **Scope Changes**: Require approval with revised estimates
-- **MVP Guarantee**: No surprise overages - present options for scope adjustments
-
-#### Investment Schedule
-| Month | Phase | Hours | Investment | Cumulative |
-|-------|-------|-------|------------|------------|
-| 1 | MVP-0 | 60 | $5,000 | $5,000 |
-| 2 | MVP-1 | 67 | $5,000 | $10,000 |
-| 3 | MVP-1 | 33 | $2,500 | $12,500 |
-| 4 | MVP-2 | 67 | $5,000 | $17,500 |
-| 5 | MVP-2 | 67 | $5,000 | $22,500 |
-| 6 | MVP-2 | 6 | $500 | $23,000 |
-| **Total** | | **300** | **$23,000** | |
-
-*Note: Remaining $7,000 allocated for hardware, cloud infrastructure, and contingency*
+- **MVP Guarantee**: No surprise overages, will present options for scope adjustments
+- **Hardware Costs**: Will be determined based on the MVP-0, MVP-1, and MVP-2 activities and will be billed separately
 
 ### Why This Model Works
 
@@ -236,15 +219,14 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 **Probability**: High (60%)  
 **Pivot Strategy**: 
 - Incorporate synthetic data augmentation
-- Expedite licensing of specialized datasets (AIDCON)
+- Expedite licensing of specialized datasets
 - Focus on robust proxy validation methodology
 
 #### Risk #2: Edge Compute Performance (MVP-1)
-**Risk**: Jetson AGX Orin falls short of Up to 200ms per frame target  
+**Risk**: Jetson AGX Orin falls short of 10-15 FPS target  
 **Probability**: Medium (30%)  
 **Pivot Strategy**:
 - Apply model compression (quantization/pruning)
-- Implement hybrid cloud-edge processing
 - Upgrade to higher-performance edge hardware
 
 #### Risk #3: Integration Complexity (MVP-2)
@@ -256,12 +238,6 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - Extended integration timeline with additional testing
 
 ### Contingency Planning
-
-**Budget Contingency**: $7,000 (23% of total) allocated for:
-- Hardware procurement and testing
-- Cloud infrastructure costs
-- Unexpected integration challenges
-- Extended testing and validation
 
 **Timeline Flexibility**: 
 - 2-week buffer built into each phase
@@ -281,7 +257,6 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 **Edge Computing**
 - **NVIDIA Jetson AGX Orin**: Primary edge computing platform
 - **Docker**: Containerized deployment for reliability
-- **Ubuntu 22.04**: Operating system with real-time capabilities
 - **CUDA 12.x**: GPU acceleration framework
 
 **Integration & Communication**
@@ -301,7 +276,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 The system follows a modular, edge-first architecture:
 
 1. **Camera Layer**: Sony ILX-LR1 with vibration-damping gimbal
-2. **Processing Layer**: NVIDIA Jetson AGX Orin with optimized inference
+2. **Processing Layer**: NVIDIA Jetson AGX Orin or similar hardware with optimized inference
 3. **Integration Layer**: WebSocket communication with iPad interface
 4. **Storage Layer**: Local SSD with cloud synchronization
 5. **Monitoring Layer**: Real-time health checks and performance metrics
@@ -330,11 +305,6 @@ The system follows a modular, edge-first architecture:
 
 ### External Dependencies
 
-**Regulatory Compliance**
-- FAA approval for modified sensor pod operations
-- Maintained GPS coverage in operational areas
-- Safety documentation and emergency procedures
-
 **Technical Infrastructure**
 - Reliable internet connectivity for development and testing
 - Cloud infrastructure access (AWS/Azure/GCP)
@@ -362,12 +332,6 @@ The system follows a modular, edge-first architecture:
 - Expansion to other infrastructure inspection applications
 - Licensing and partnership opportunities
 
-### Investment & ROI Projections
-
-**Phase 1 ROI**: 6-month payback through improved detection accuracy  
-**Full System ROI**: $21.8M NPV over 3 years (4,208% return)  
-**Market Position**: First-mover advantage in AI-powered pipeline inspection
-
 ## Next Steps & Engagement
 
 ### Immediate Actions
@@ -381,15 +345,12 @@ The system follows a modular, edge-first architecture:
 
 **30 Days**: MVP-0 proof-of-concept demo and performance validation  
 **60 Days**: MVP-1 custom dataset and edge processing demonstration  
-**90 Days**: MVP-2 integration testing and operator feedback collection  
-**150 Days**: Production system deployment and operator training completion
+**TBD Days**: MVP-2 integration testing and operator feedback collection  
+**TBD Days**: Production system deployment and operator training completion
 
 ### Partnership Commitment
 
-We're committed to making real-time threat detection a reality at VanGuard. Our proven methodology, transparent approach, and flexible engagement model ensure successful delivery while minimizing risk and maximizing value.
-
-**Ready to transform pipeline safety through intelligent computer vision?**
-
+We're committed to making real-time threat detection a reality at VanGuard. The methodology, transparent approach, and flexible engagement model ensure successful delivery while minimizing risk and maximizing value.
 ---
 
 ## Related Documentation

@@ -11,34 +11,117 @@ showNavigationLinks: true
 
 This library contains curated external resources that are directly relevant to the PipelineVision AI-powered threat detection system. Resources are organized by category and include summaries explaining their relevance to our project.
 
+## Market Research & Analysis
+
+### Competitor Analysis
+**Link**: [Competitor Analysis](/library/competitor-analysis)
+
+**Summary**: Comprehensive analysis of the aerial pipeline surveillance market landscape, including detailed profiles of key competitors such as DNV/Raptor, LineVision, FlyScan, Overwatch Imaging, and FlyPixelAI.
+
+**Relevance**: Critical for understanding market positioning, competitive advantages, and strategic differentiation opportunities. Informs product development priorities and go-to-market strategy.
+
+---
+
+### Key Market Players
+
+#### DNV (Det Norske Veritas)
+**Link**: [DNV Official Website](https://www.dnv.com/)
+
+**Summary**: DNV is a global quality assurance and risk management company providing services to the maritime, oil & gas, and energy industries. They offer comprehensive pipeline integrity management and inspection services using advanced technologies.
+
+**Relevance**: Major player in pipeline integrity management with established methodologies and industry standards. Understanding their approach provides insights into industry best practices and regulatory compliance requirements.
+
+---
+
+#### Raptor Maps
+**Link**: [Raptor Maps](https://www.raptormaps.com/)
+
+**Summary**: Raptor Maps specializes in aerial data analytics and inspection services for critical infrastructure, including pipelines, power lines, and renewable energy assets. They provide AI-powered analysis of aerial imagery and thermal data.
+
+**Relevance**: Direct competitor in aerial pipeline inspection with focus on AI-powered analytics. Their technology stack and service offerings provide valuable competitive intelligence for positioning our solution.
+
+---
+
+#### LineVision
+**Link**: [LineVision Inc.](https://www.linevisioninc.com/)
+
+**Summary**: LineVision provides real-time monitoring solutions for transmission lines and pipelines using advanced sensor technology and analytics. They focus on continuous monitoring rather than periodic inspections.
+
+**Relevance**: Represents the continuous monitoring approach to pipeline surveillance. Understanding their real-time monitoring capabilities helps inform our strategy for integrating periodic aerial inspections with continuous monitoring systems.
+
+---
+
+#### FlyScan
+**Link**: [FlyScan](https://www.flyscan.com/)
+
+**Summary**: FlyScan offers aerial inspection services using drone technology for various infrastructure applications including pipelines, power lines, and industrial facilities.
+
+**Relevance**: Direct competitor in drone-based aerial inspection services. Their operational model and service delivery approach provide insights into market expectations and service delivery standards.
+
+---
+
+#### Overwatch Imaging
+**Link**: [Overwatch Imaging](https://www.overwatchimaging.com/)
+
+**Summary**: Overwatch Imaging specializes in aerial surveillance and imaging solutions, including their PT series products for professional aerial monitoring applications.
+
+**Relevance**: Competitor with specialized imaging hardware and surveillance solutions. Their PT series products represent potential hardware alternatives or integration opportunities.
+
+##### PT Series Products
+**Link**: [Overwatch PT Series](https://www.overwatchimaging.com/products/pt-series/)
+
+**Summary**: Specialized product line from Overwatch Imaging focused on professional aerial surveillance and monitoring applications with advanced imaging capabilities.
+
+**Relevance**: Specific product line that may compete directly with our imaging solutions. Understanding their technical specifications helps inform our hardware selection and capability requirements.
+
+---
+
+#### FlyPixelAI
+**Link**: [FlyPixel AI](https://www.flypixel.ai/)
+
+**Summary**: FlyPixelAI provides AI-powered computer vision solutions specifically designed for aerial and drone-based applications, focusing on automated analysis of aerial imagery.
+
+**Relevance**: Direct competitor in AI-powered aerial image analysis. Their computer vision approach and AI capabilities provide valuable insights into state-of-the-art techniques and competitive positioning in the AI space.
+
+---
+
 ## Whitepapers & Research
 
 ### Computer Vision and Object Detection Research
 
-#### ACM Research Paper
+#### YOLOv5 Vehicle Detection (ACM)
 **Link**: [ACM Digital Library Research](https://dl.acm.org/doi/pdf/10.1145/3632971.3632993)
 
-**Summary**: Academic research paper from ACM Digital Library. Access requires institutional subscription or individual purchase. Content details not publicly accessible without subscription.
+**Summary**: Academic research paper from ACM Digital Library focusing on YOLOv5 implementation for vehicle detection applications. The paper likely covers performance optimization and real-world deployment considerations for YOLO-based object detection systems.
 
-**Relevance**: Potentially relevant to computer vision and object detection research. Recommend institutional access or alternative open-access papers for immediate reference.
-
----
-
-#### ArXiv Research Paper  
-**Link**: [ArXiv Paper](https://arxiv.org/pdf/2102.12219)
-
-**Summary**: ArXiv preprint paper (ID: 2102.12219). Paper is accessible but specific content and title require direct review of the PDF document.
-
-**Relevance**: Potentially relevant to YOLO or computer vision research. Recommend reviewing the actual paper content to determine specific applicability to our threat detection system.
+**Relevance**: Directly relevant to our YOLO-based threat detection system. Vehicle detection techniques can be adapted for detecting vehicles near pipeline infrastructure, which is a key threat category for our system.
 
 ---
 
-#### MDPI Remote Sensing Journal Article
-**Link**: [MDPI Remote Sensing](https://www.mdpi.com/2072-4292/16/17/3295)
+#### Pipeline Path Following (MDPI Drones)
+**Link**: [MDPI Drones Journal](https://www.mdpi.com/2504-446X/6/12/410)
 
-**Summary**: Peer-reviewed article published in MDPI Remote Sensing journal (Volume 16, Issue 17, Article 3295). Open access publication that can be reviewed directly through the provided link.
+**Summary**: Peer-reviewed article published in MDPI Drones journal focusing on autonomous pipeline path following using drone technology. Open access publication covering navigation algorithms and autonomous flight systems for pipeline inspection.
 
-**Relevance**: Published in a remote sensing journal, likely relevant to aerial imaging and sensing applications. Recommend reviewing the actual article to assess specific applicability to pipeline inspection workflows.
+**Relevance**: Highly relevant to our autonomous drone navigation requirements. The research provides insights into algorithms and methodologies for maintaining accurate flight paths along pipeline corridors during inspection missions.
+
+---
+
+#### DOTA Dataset (MDPI Remote Sensing)
+**Link**: [MDPI Remote Sensing - DOTA](https://www.mdpi.com/2072-4292/12/1/182)
+
+**Summary**: Research paper introducing the DOTA (Dataset for Object deTection in Aerial images) dataset, published in MDPI Remote Sensing. The paper describes the dataset structure, annotation methodology, and benchmark results for aerial object detection.
+
+**Relevance**: Critical reference for our aerial object detection model development. The DOTA dataset is one of the most comprehensive aerial imagery datasets available and provides benchmarking standards for our threat detection algorithms.
+
+---
+
+#### Object Detection Survey (arXiv)
+**Link**: [ArXiv Object Detection Survey](https://arxiv.org/pdf/2102.12219)
+
+**Summary**: Comprehensive survey paper on object detection methods and techniques, available as an arXiv preprint. The survey covers state-of-the-art approaches, performance comparisons, and future research directions in computer vision-based object detection.
+
+**Relevance**: Essential reference for understanding the broader landscape of object detection techniques. Provides comprehensive background for selecting and optimizing detection algorithms for our specific pipeline threat detection use case.
 
 ## Repositories
 
@@ -103,7 +186,122 @@ This library contains curated external resources that are directly relevant to t
 
 **Relevance**: Essential reference for computer vision development. OpenCV is a fundamental library for image processing, computer vision tasks, and integration with machine learning frameworks in most vision-based applications.
 
-## Datasets
+## AI Models & Datasets
+
+### HuggingFace Resources
+
+#### 3D Reconstruction Models
+
+##### Aerial-MASt3R (3D Reconstruction)
+**Link**: [HuggingFace - Aerial MASt3R](https://huggingface.co/kvuong2711/checkpoint-aerial-mast3r)
+
+**Summary**: Pre-trained model checkpoint for aerial 3D reconstruction using the MASt3R (Matching and Stereo 3D Reconstruction) framework. Specifically trained for aerial imagery applications to generate 3D models from aerial photographs.
+
+**Relevance**: Valuable for creating 3D pipeline corridor models from aerial imagery. Can enhance threat detection by providing spatial context and enabling volumetric analysis of pipeline surroundings.
+
+---
+
+##### Aerial-DUSSt3R (3D Reconstruction)
+**Link**: [HuggingFace - Aerial DUSt3R](https://huggingface.co/kvuong2711/checkpoint-aerial-dust3r)
+
+**Summary**: Pre-trained model checkpoint for aerial 3D reconstruction using the DUSt3R (Depth and Uncertainty-aware Stereo 3D Reconstruction) framework. Optimized for aerial imagery with uncertainty estimation capabilities.
+
+**Relevance**: Advanced 3D reconstruction with uncertainty quantification. Useful for assessing confidence levels in 3D pipeline corridor reconstructions and identifying areas requiring additional inspection.
+
+---
+
+#### Language Models for Aerial Applications
+
+##### Gemma-Aerial-12B (Large Language Model)
+**Link**: [HuggingFace - Gemma Aerial 12B](https://huggingface.co/luisml77/gemma-aerial-12b)
+
+**Summary**: Large language model (12B parameters) fine-tuned specifically for aerial imagery understanding and analysis. Based on the Gemma architecture with specialized training for aerial domain applications.
+
+**Relevance**: Potential for natural language processing of inspection reports and automated analysis descriptions. Could enhance our system's ability to generate human-readable threat assessment reports.
+
+---
+
+#### Computer Vision Models
+
+##### Road Segmentation for Aerial Images
+**Link**: [HuggingFace - Road Segmentation](https://huggingface.co/phungtienthanh2004/Road-Segmentation-for-Aerial-Image)
+
+**Summary**: Pre-trained model for semantic segmentation of roads in aerial imagery. Trained to identify and delineate road networks from overhead perspectives.
+
+**Relevance**: Adaptable for pipeline segmentation tasks. Road segmentation techniques can be fine-tuned to identify pipeline corridors and right-of-way boundaries in aerial imagery.
+
+---
+
+##### YOLO Aerial Detection
+**Link**: [HuggingFace - YOLO Aerial Detection](https://huggingface.co/Ashegh-Sad-Warrior/yolo_aerial_detection_)
+
+**Summary**: YOLO model specifically trained for object detection in aerial imagery. Optimized for detecting various objects and features from overhead perspectives.
+
+**Relevance**: Directly applicable to our aerial threat detection system. Can serve as a baseline model or be fine-tuned for specific pipeline threat categories.
+
+---
+
+##### Aerial Drone Image Segmentation
+**Link**: [HuggingFace - Aerial Drone Segmentation](https://huggingface.co/Thalirajesh/Aerial-Drone-Image-Segmentation)
+
+**Summary**: Segmentation model trained specifically for aerial drone imagery. Capable of identifying and segmenting various features and objects in drone-captured images.
+
+**Relevance**: Essential for detailed analysis of pipeline surroundings. Segmentation capabilities can help identify vegetation encroachment, terrain changes, and infrastructure elements.
+
+---
+
+##### Pixtral VQA (Visual Question Answering)
+**Link**: [HuggingFace - Pixtral Aerial VQA](https://huggingface.co/takara-ai/pixtral_aerial_VQA_adapter)
+
+**Summary**: Visual Question Answering adapter model specifically designed for aerial imagery. Enables natural language queries about aerial image content and provides descriptive answers.
+
+**Relevance**: Could enhance our system's interpretability by allowing natural language queries about detected threats and inspection findings. Useful for generating automated inspection reports.
+
+---
+
+#### Robotics and Control Systems
+
+##### Decentralized Aerial Manipulation (Robotics)
+**Link**: [HuggingFace - Decentralized Aerial Manipulation](https://huggingface.co/jackzeng-robotics/decentralized_aerial_manipulation_marl)
+
+**Summary**: Multi-agent reinforcement learning model for decentralized aerial manipulation tasks. Designed for coordinating multiple aerial vehicles in complex manipulation scenarios.
+
+**Relevance**: Relevant for coordinating multiple drones in large-scale pipeline inspection missions. Could inform swarm-based inspection strategies for extensive pipeline networks.
+
+---
+
+### Specialized Datasets
+
+#### AerialD O3 500 (Dataset for LLM)
+**Link**: [HuggingFace - AerialD O3 500](https://huggingface.co/datasets/luisml77/aeriald_o3_500)
+
+**Summary**: Dataset containing 500 aerial imagery samples with detailed annotations designed for training large language models on aerial image understanding tasks.
+
+**Relevance**: Valuable for training or fine-tuning language models to understand and describe aerial imagery content. Could enhance automated report generation capabilities.
+
+---
+
+#### FloodNet Dataset
+**Link**: [HuggingFace - FloodNet 2021](https://huggingface.co/datasets/takara-ai/FloodNet_2021-Track_2_Dataset_HF)
+
+**Summary**: FloodNet 2021 Track 2 dataset focusing on flood detection and analysis from aerial imagery. Contains annotated aerial images for disaster response and environmental monitoring applications.
+
+**Relevance**: Provides insights into environmental threat detection methodologies. Techniques for flood detection can be adapted for identifying environmental hazards near pipeline infrastructure.
+
+---
+
+### Related Projects
+
+#### AerialMegaDepth Project
+**Link**: [Aerial MegaDepth Project Page](https://aerial-megadepth.github.io/)
+
+**Summary**: Research project homepage for AerialMegaDepth, focusing on large-scale aerial imagery depth estimation and 3D reconstruction. Provides project details, publications, and dataset information.
+
+**Relevance**: Comprehensive resource for aerial depth estimation techniques. Valuable for understanding state-of-the-art approaches to 3D pipeline corridor modeling and spatial analysis.
+
+---
+
+## Traditional Datasets
 
 ### DOTA Dataset Project
 **Link**: [DOTA Dataset Homepage](https://captain-whu.github.io/DOTA/dataset.html)
