@@ -1,0 +1,262 @@
+---
+title: "Core Hypotheses"
+description: "Key hypotheses, business questions, and validation approach from high-level goals to atomic tests"
+author: "Theodore Zipoy"
+publishDate: 2025-01-20
+tags: ["pipeline-threat-detection", "hypotheses", "validation", "mvp"]
+showBreadcrumbs: true
+showTableOfContents: true
+showNavigationLinks: true
+---
+
+import { Card } from '@/components/docs/Card';
+
+This page breaks down the key hypotheses and business questions driving the PipelineVision project, structured from high-level strategic goals down to atomic, testable assumptions. Each hypothesis maps directly to specific MVP validation approaches.
+
+## Foundational Framework
+
+### The Core Belief
+**If we add real-time AI threat detection to VanGuard's existing platform, we will significantly enhance pipeline safety by proactively identifying physical threats.**
+
+This breaks into two key validation areas:
+- **Build the Right Thing**: Are we solving a valuable problem?
+- **Build the Thing Right**: Can we deliver a robust solution?
+
+## Hypothesis Hierarchy
+
+### 1. Strategic Hypothesis: AI Can Transform Pipeline Safety
+
+**High-Level Question**: Can AI-powered computer vision meaningfully reduce pipeline safety risks while integrating seamlessly into existing operations?
+
+**Business Driver**: The pipeline industry faces $30-60 billion in annual costs from excavator strikes and related incidents, with 136+ casualties over the past decade. Manual visual scanning during 4-6 hour flights creates cognitive fatigue and missed threats.
+
+---
+
+## Core Validation Hypotheses
+
+### H1: Validate AI Threat Detection in the Cloud
+**Strategic Objective**: Prove that a pretrained AI model can reliably flag construction threats in pipeline footage before any hardware investment.
+
+#### Atomic Hypothesis
+If we run YOLOv8 on archived aerial clips, it will identify 70% or more of excavator instances when we treat "truck" as a stand-in class.
+
+#### Data Foundation
+Before testing detection, we must secure quality training data through our "buy, license, augment" strategy to ensure model effectiveness across diverse conditions.
+
+#### Training Infrastructure
+We must have access to the necessary tools, expertise, and computational resources to efficiently train, fine-tune, and package a YOLO-class model for on-board deployment.
+
+#### Why It Matters
+Confirms the core detection concept and avoids wasted effort on custom hardware or data collection before proving viability.
+
+#### MVP Mapping
+<div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-4">
+**MVP-0 (Cloud Proof of Concept)**
+- Test YOLOv8 on archived VanGuard footage
+- Use "truck" class as excavator proxy
+- Measure recall rates on known excavator instances
+- Validate detection confidence thresholds
+</div>
+
+#### Success Criteria
+- **Detection Rate**: 70% or higher recall on excavator-like objects
+- **Processing Time**: Less than 5 seconds per frame (cloud processing acceptable)
+- **False Positive Rate**: Less than 20% on non-threat objects
+- **Data Requirements**: Successfully process 100+ hours of archived footage
+- **Training Capability**: Successfully complete model training run within budget and timeline
+
+---
+
+### H2: Enable Real-Time Edge Processing on Live Video
+**Strategic Objective**: Demonstrate that threat detection can run locally at full flight resolution and frame rate.
+
+#### Atomic Hypothesis
+A Jetson-class edge device can process each video frame in 200ms or less while maintaining 70% or higher recall and 5% or fewer false positives.
+
+#### Physical Integration Requirements
+The edge device must fit within existing aircraft constraints for power, space, and cooling without modifications.
+
+#### Why It Matters
+Ensures the system can deliver instant alerts in flight without cloud dependency or latency issues that could compromise safety.
+
+#### MVP Mapping
+<div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-4">
+**MVP-1 (Edge Demo)**
+- Deploy optimized YOLOv8 model on NVIDIA Jetson AGX Orin
+- Process live video feed at flight resolution (1920x1080 minimum)
+- Maintain real-time performance (10 FPS or higher)
+- Test under simulated flight conditions
+</div>
+
+#### Success Criteria
+- **Processing Speed**: 200ms or less per frame
+- **Sustained Performance**: 10 FPS or higher for 30+ minute sessions
+- **Detection Performance**: 70% or higher recall, 5% or fewer false positives
+- **Resource Usage**: Less than 80% GPU utilization, less than 70% CPU utilization
+- **Power Consumption**: Less than 50W total system draw
+- **Power**: Less than 50W from existing aircraft power
+- **Space**: Fits within available sensor pod volume
+- **Cooling**: Operates without additional cooling systems
+
+---
+
+### H3: Integrate Seamlessly with Falcon Pod & iPad Workflow
+**Strategic Objective**: Embed AI alerts into VanGuard's existing sensor pod and operator interface with zero workflow disruption.
+
+#### Atomic Hypothesis
+AI-generated bounding boxes and alerts can be streamed into the iPad app in under 100 ms, matching the pod's autotrack refresh rate.
+
+#### Why It Matters
+Protects operator focus and leverages established processes, maximizing adoption and minimizing training requirements.
+
+#### MVP Mapping
+<div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-4">
+**MVP-2 (Flight Integration)**
+- Integrate AI processing with Sony ILX-LR1 camera feed
+- Stream detection results to iPad interface
+- Maintain autotrack system compatibility
+- Preserve existing operator workflows
+</div>
+
+#### Success Criteria
+- **Alert Latency**: Less than 100ms from detection to iPad display
+- **Interface Integration**: Zero changes to core operator workflow
+- **System Compatibility**: No interference with existing autotrack functions
+- **Reliability**: 99% or higher uptime during flight operations
+- **User Acceptance**: 85% or higher operator satisfaction in usability testing
+
+---
+
+### H4: Achieve 85% or Higher Actionable Intelligence Rate
+**Strategic Objective**: Iterate through live tests to ensure 85% or more of all alerts are confirmed as valid by operators.
+
+#### Atomic Hypothesis
+By tuning confidence thresholds and collecting operator feedback, the system can reduce false alarms to fewer than one per 3 hours of flight.
+
+#### Environmental Robustness
+The system must maintain performance across VanGuard's diverse operational conditions including different seasons, lighting, and geographic regions.
+
+#### Why It Matters
+Builds operator trust—without this level of accuracy, the system becomes a distraction rather than an aid.
+
+#### MVP Mapping
+<div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 my-4">
+**Spans All MVPs**
+- MVP-0: Establish baseline accuracy metrics
+- MVP-1: Implement feedback collection mechanisms  
+- MVP-2: Achieve target AIR through iterative tuning
+</div>
+
+#### Success Criteria
+- **Actionable Intelligence Rate**: 85% or higher operator confirmation
+- **False Alarm Rate**: Less than 1 false alarm per 3 hours of flight
+- **Operator Trust**: 90% or higher confidence in system alerts
+- **Feedback Loop**: Less than 24 hour model update cycle capability
+
+---
+
+### H5: Deliver Operational System in 7 Months
+**Strategic Objective**: Follow a phased roadmap—cloud proof → edge demo → production integration—to hand over a flight-ready AI pod system within 7 months.
+
+#### Atomic Hypothesis
+Each MVP phase can be completed within defined timeframes with clear go/no-go criteria, allowing rapid pivots and on-time delivery.
+
+#### Why It Matters
+Aligns with VanGuard's planning cycles and ensures timely ROI realization while maintaining technical rigor through progressive validation.
+
+#### MVP Mapping
+<div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 my-4">
+**Phased Delivery Timeline**
+- **MVP-0**: Month 1 (Cloud proof-of-concept validation)
+- **MVP-1**: Months 2-3 (Edge demonstration & custom training)  
+- **MVP-2**: Months 4-7 (Production integration & deployment)
+</div>
+
+#### Success Criteria
+- **MVP-0 Completion**: Cloud validation delivered within 4 weeks
+- **MVP-1 Completion**: Edge demonstration achieved within 6 weeks
+- **MVP-2 Completion**: Production system deployed within 12 weeks
+- **Go/No-Go Gates**: Clear success criteria met before phase advancement
+- **Risk Mitigation**: Pivot capability maintained at each phase boundary
+- **Final Delivery**: Flight-ready system deployed by month 7
+
+---
+
+## Hypothesis Validation Framework
+
+### Risk-Based Prioritization
+
+**High Risk, High Impact**: H1 (AI Detection Viability)
+- Must validate first - project viability depends on this
+- Lowest cost to test, highest potential for early exit
+
+**Medium Risk, High Impact**: H2 (Edge Processing), H3 (Integration)
+- Technical feasibility risks with known solutions
+- Critical for operational deployment
+
+**Low Risk, High Impact**: H4 (Actionable Intelligence), H5 (Timeline)
+- Execution and optimization challenges
+- Success depends on previous hypothesis validation
+
+### Testing Approach
+
+Each hypothesis follows a structured validation approach:
+
+1. **Define Metrics**: Quantitative success criteria
+2. **Design Tests**: Specific experiments to validate/invalidate
+3. **Collect Data**: Systematic measurement and logging
+4. **Analyze Results**: Statistical significance and confidence intervals
+5. **Make Decisions**: Clear go/no-go criteria for advancement
+
+### Interconnected Dependencies
+
+The hypotheses have clear dependencies and validation sequences:
+
+- **H1 (Cloud Detection)** → **H2 (Edge Processing)** → **H3 (iPad Integration)** → **H5 (Timeline Delivery)**
+- **H1** also feeds into **H4 (Actionable Intelligence)** 
+- **H4** depends on successful completion of **H2** and **H3**
+- **H2** and **H3** both contribute to **H5**
+
+**Critical Path**: H1 → H2 → H3 → H5  
+**Parallel Optimization**: H4 runs concurrently with H2 and H3
+
+---
+
+## Business Questions Addressed
+
+### Primary Business Questions
+
+1. **Market Viability**: Can AI threat detection create a defensible competitive advantage?
+2. **Technical Feasibility**: Can edge AI processing meet real-time flight requirements?
+3. **Integration Complexity**: Can we enhance existing systems without disrupting operations?
+4. **Operator Adoption**: Will pilots trust and effectively use AI-generated alerts?
+5. **Economic Return**: Does the system generate sufficient ROI to justify investment?
+
+### Secondary Business Questions
+
+1. **Scalability**: Can the solution extend to VanGuard's full fleet?
+2. **Maintenance**: What ongoing support and model updates are required?
+3. **Regulatory**: Are there certification or compliance implications?
+4. **Competition**: How does this position VanGuard against competitive threats?
+
+---
+
+## Related Documentation
+
+<div className="grid gap-4 mt-8">
+
+<Card href="/project-planning/timeline" title="🚀 Project Timeline & MVP Strategy" icon="">
+  Comprehensive timeline with detailed MVP phases and validation approach
+</Card>
+
+<Card href="/project-planning/risk-management" title="⚠️ Risk Management" icon="">
+  Risk mitigation strategies for hypothesis validation failures
+</Card>
+
+<Card href="/project-overview/technical-data" title="🔧 Technical Architecture" icon="">
+  System design supporting hypothesis validation requirements
+</Card>
+
+
+
+</div>
