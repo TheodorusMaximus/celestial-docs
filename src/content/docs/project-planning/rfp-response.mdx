@@ -211,6 +211,36 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - **MVP Guarantee**: No surprise overages, will present options for scope adjustments
 - **Hardware Costs**: Will be determined based on the MVP-0, MVP-1, and MVP-2 activities and will be billed separately
 
+### Expected Infrastructure Costs
+
+#### Monthly Recurring Costs
+
+**Data Management & Annotation**
+- **Roboflow**: $49-299/month (based on dataset size and annotation volume)
+
+**Model Training & Deployment**
+- **Ultralytics HUB**: $20/month for model training, versioning, and deployment management
+- **Cloud Compute (AWS/GCP)**:
+  - Training: $150-400/month (GPU instances for model fine-tuning)
+  - Inference API: $50-150/month (depending on usage volume)
+  - Storage: $25-75/month (datasets, models, and processed imagery)
+
+**Infrastructure & Monitoring**
+- **Database & Storage**: $30-80/month (PostgreSQL, Redis, S3-compatible storage)
+- **Monitoring & Logging**: $25-50/month (application monitoring, error tracking)
+- **CI/CD & DevOps**: $20-40/month (GitHub Actions, deployment automation)
+
+#### Estimated Monthly Infrastructure Total
+
+**MVP-0 Phase**: $200-400/month (cloud-focused development)  
+**MVP-1 Phase**: $300-600/month (increased compute and storage needs)  
+**MVP-2 Phase**: $400-800/month (full production infrastructure)
+
+
+*Note: Actual costs will be refined based on MVP-0 findings and specific performance requirements. Hardware costs will be presented as separate line items with detailed justification.*
+
+
+
 ### Why This Model Works
 
 **Predictable Budget**: Monthly caps align with planning cycles and cash flow  
