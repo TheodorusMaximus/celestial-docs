@@ -101,7 +101,7 @@ Our data strategy addresses the critical challenge of pipeline-specific threat d
 - **Value**: Construction equipment domain knowledge for transfer learning
 - **Strategy**: Bridge gap between aerial and ground-based equipment detection
 
-#### Tier 3: Pipeline-Specific Collection
+#### Tier 3: Pipeline-Specific Collection (To be determined)
 - **Source**: VanGuard operational flights and targeted collection
 - **Volume**: 500-1,000+ professionally annotated pipeline corridor images
 - **Coverage**: Seasonal variations, lighting conditions, threat scenarios
@@ -146,11 +146,9 @@ graph LR
 - **Inference Framework**: PyTorch → ONNX → TensorRT optimization pipeline
 
 ### Edge Computing Platform
-- **Hardware**: NVIDIA Jetson AGX Orin (64GB Configuration)
+- **Hardware**: NVIDIA Jetson AGX Orin (64GB Configuration) or similar hardware
   - **AI Performance**: 275 TOPS (INT8), 68 TOPS (FP16)
   - **Memory**: 64GB LPDDR5 (selected for model caching and video buffering)
-  - **Power Envelope**: 30W typical, 60W maximum (configurable TDP)
-  - **Operating Temperature**: -25°C to +80°C (extended industrial range)
 - **Software Stack**:
   - **OS**: JetPack v5.1 (Ubuntu-based)
 - **Container Runtime**: Docker with NVIDIA Container Toolkit
@@ -167,7 +165,7 @@ graph LR
   - **Frame Buffering**: 2-second rolling buffer for quality selection
   - **Preprocessing**: Resolution scaling, color normalization, contrast enhancement
   - **Inference Batching**: Dynamic batching for optimal GPU utilization
-  - **Post-processing**: Non-Maximum Suppression, confidence thresholding
+  - **Post-processing**: Non-Maximum Suppression
 
 ---
 
@@ -205,16 +203,16 @@ gantt
 ```
 
 #### MVP-0: Cloud Proof-of-Concept (Month 1)
-**Investment**: $5,000 | **Effort**: 60 hours | **Risk Level**: Low
+**Investment**: $5,000 | **Effort**: 70 hours | **Risk Level**: Low
 
-- **Infrastructure**: AWS/Azure A100 GPU instances for cloud processing
-- **Data Source**: VanGuard archived flight footage + DOTA/AIDCON datasets
-- **Validation Target**: 70%+ proxy detection correlation on excavator threats
-- **Key Deliverables**: Architecture diagram, performance baseline, go/no-go analysis
+- **Infrastructure**: AWS/Azure GPU instances for cloud processing
+- **Data Source**: VanGuard archived flight footage + DOTA/AIDCON/VisDrone datasets
+- **Validation Target**: 70%+ detection on proxy threat classes
+- **Key Deliverables**: Architecture diagram, performance baseline, go/no-go analysis, and related documentation
 - **Success Gate**: Proven proxy strategy effectiveness before hardware investment
 
 #### MVP-1: Edge Demonstration (Months 2-3)  
-**Investment**: $5,000 | **Effort**:  hours | **Risk Level**: Medium
+**Investment**: $5,000 | **Effort**: 70 hours | **Risk Level**: Medium
 
 - **Infrastructure**: NVIDIA Jetson AGX Orin development kit with live processing (or similar)
 - **Data Source**: Custom VanGuard dataset (500-1,000 annotated images) + live video feeds
@@ -223,7 +221,7 @@ gantt
 - **Success Gate**: Real-time edge performance validated before aircraft integration
 
 #### MVP-2: Aircraft Integration (Months 4-6)
-**Investment**: $17,500 | **Effort**: 140 hours | **Risk Level**: Medium-High
+**Investment**: $TBD | **Effort**: 140 hours | **Risk Level**: Medium-High
 
 - **Infrastructure**: Production Jetson AGX Orin integrated into Falcon pod platform
 - **Data Source**: Sony ILX-LR1 live feed with full GPS/KMZ correlation
@@ -263,69 +261,6 @@ graph TD
 
 
 ```
-
-### Testing Methodologies by Phase
-
-#### MVP-0: Algorithm Validation
-- **Dataset Testing**: Hold-out validation on 20% of DOTA/AIDCON data
-- **Proxy Validation**: Correlation analysis between "truck" detections and excavator ground truth
-- **Performance Benchmarking**: FPS, latency, and accuracy baselines on cloud infrastructure
-- **Domain Transfer Analysis**: Performance comparison across aerial vs. ground-based imagery
-
-#### MVP-1: Edge Performance Testing  
-- **Hardware Stress Testing**: Extended runtime under thermal and power constraints
-- **Model Optimization Validation**: TensorRT conversion accuracy and speed verification
-- **Real-Time Processing Tests**: Live video feed processing with latency measurement
-- **Custom Dataset Validation**: Performance improvement measurement on VanGuard-specific imagery
-
-#### MVP-2: Operational Integration Testing
-- **System Integration Tests**: Full pipeline from camera input to iPad alert display
-- **Environmental Testing**: Performance under vibration, temperature, and lighting variations
-- **Operator Workflow Testing**: User experience validation with actual VanGuard pilots
-- **Flight Test Validation**: Controlled test flights with ground truth threat placement
-
-### Quality Assurance Metrics
-
-| Testing Phase | Metric | Target | Measurement Method |
-|---------------|--------|--------|--------------------|
-| **Algorithm** | Model mAP@0.5 | &gt;93% | Hold-out test sets |
-| **Performance** | Inference FPS | &gt;15 FPS | Sustained load testing |
-| **Integration** | End-to-end latency | &lt;200ms | Timestamp correlation |
-| **Operational** | Actionable Intelligence Rate | &gt;85% | Operator feedback tracking |
-| **Reliability** | System uptime | &gt;99% | Flight hour monitoring |
-
-### Continuous Learning & Improvement
-
-- **Feedback Integration**: Operator confirmations/dismissals feed model improvement
-- **Performance Monitoring**: Real-time tracking of detection accuracy and system health  
-- **Model Versioning**: Controlled deployment of model updates with rollback capability
-- **A/B Testing Framework**: Parallel model evaluation for continuous optimization
-
-## Integration Specifications & Network Architecture
-
-### VanGuard System Interfaces
-
-#### Camera Integration
-- **Protocol**: USB3 Vision compliant with GenICam standard
-- **Resolution**: 4096x3000 native capture, 1920x1080 inference processing
-- **Frame Rate**: 30 FPS capture, 15 FPS inference with intelligent frame selection
-- **Synchronization**: GPS timestamp correlation with &lt;10ms accuracy
-- **Interface**: USB3.0 SuperSpeed (5 Gbps) with automatic fallback to USB2.0
-
-#### iPad Interface & Communication
-- **Primary Protocol**: WebSocket (WSS) for real-time alerts with TLS 1.3 encryption
-- **Fallback Protocol**: REST API for configuration and status queries
-- **Data Format**: JSON with base64-encoded threat region thumbnails
-- **Update Rate**: Real-time alerts (event-driven) + 1 Hz heartbeat
-- **Feedback Loop**: Operator confirm/dismiss with &lt;100ms response time
-- **Offline Capability**: Local queue with sync when connectivity restored
-
-#### GPS/KMZ Integration & Geospatial Intelligence
-- **Coordinate System**: WGS84 with UTM projection for accuracy
-- **Corridor Validation**: ±50m from pipeline centerline (configurable)
-- **Geofencing**: Multi-zone threat sensitivity (high/medium/low risk areas)
-- **Logging**: Timestamped GeoJSON with threat metadata and confidence scores
-- **Mapping Integration**: KMZ overlay generation for post-flight analysis
 
 ### Network Architecture & Connectivity
 
@@ -384,11 +319,10 @@ Our risk management approach aligns with the phased MVP methodology, providing c
 - Maintain multiple model architectures for comparison
 
 #### Risk #2: Edge Compute Performance (MVP-1 Phase)
-**Challenge**: Jetson AGX Orin may not achieve target &lt;200ms latency per frame  
+**Challenge**: Jetson AGX Orin may not achieve target latency per frame  
 **Indicators**: Sustained performance below 15 FPS or excessive power consumption  
 **Mitigation**:
 - Apply model quantization and pruning techniques
-- Implement hybrid cloud-edge processing for peak loads
 - Upgrade to higher-performance edge hardware if necessary
 - Optimize TensorRT inference pipeline
 
@@ -414,44 +348,6 @@ Our risk management approach aligns with the phased MVP methodology, providing c
 - **Automatic Recovery**: Self-healing capabilities with diagnostic logging
 - **Health Monitoring**: Real-time system metrics with proactive alerting
 - **Manual Override**: Operator controls for system disable/enable
-
----
-
-## Security & Compliance Framework
-
-### Data Security & Privacy Protection
-
-#### Encryption & Access Control
-- **Data at Rest**: AES-256 encryption for all stored imagery and detection logs
-- **Data in Transit**: TLS 1.3 for all network communications with certificate pinning
-- **Access Control**: Role-based authentication with multi-factor authentication
-- **Key Management**: Hardware security module (HSM) for cryptographic key storage
-
-#### Privacy & Data Handling
-- **No PII Collection**: System designed to avoid collecting personally identifiable information
-- **Data Minimization**: Only store detection metadata, not full-resolution imagery
-- **Retention Policy**: 90-day operational logs with secure deletion procedures
-- **Audit Trail**: Complete detection history with tamper-evident logging
-
-### Regulatory Compliance
-
-#### Aviation Standards
-- **FAA Part 135**: Compliance with commercial aviation operational requirements
-- **DO-178C**: Software development standards for airborne systems (future consideration)
-- **RTCA DO-160**: Environmental conditions and test procedures for airborne equipment
-- **MIL-STD-810G**: Environmental engineering considerations and laboratory tests
-
-#### Export Control & Security
-- **ITAR Compliance**: International Traffic in Arms Regulations compliance verified
-- **EAR Classification**: Export Administration Regulations classification complete
-- **Security Clearance**: Team members with appropriate clearance levels
-- **Technology Transfer**: Controlled sharing of sensitive technical information
-
-#### Cybersecurity Framework
-- **NIST Cybersecurity Framework**: Implementation of identify, protect, detect, respond, recover
-- **Vulnerability Management**: Regular security assessments and penetration testing
-- **Incident Response**: Comprehensive incident response plan with escalation procedures
-- **Supply Chain Security**: Vendor assessment and secure development practices
 
 ---
 

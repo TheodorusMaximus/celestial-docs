@@ -9,8 +9,18 @@ showBreadcrumbs: true
 showTableOfContents: true
 showNavigationLinks: true
 ---
+## Implementation Roadmap
 
-This section contains the comprehensive planning documentation for the PipelineVision AI-powered threat detection system. Our approach combines evidence-based methodology with agile execution to deliver measurable business value.
+The PipelineVision project follows our proven progressive MVP methodology with a strategic timeline designed to validate core assumptions, reduce technical risk, and deliver value incrementally. Each MVP phase builds on validated learnings from the previous phase.
+
+## MVP Development Philosophy
+
+### Core Principles
+- **Start Small, Move Fast**: Validate critical assumptions quickly with minimal investment
+- **Fail Fast, Learn Faster**: Rapid iteration based on real-world feedback and data
+- **Measure Everything**: Data-driven decision making at each stage with clear success criteria
+- **User-Centric Evolution**: VanGuard user needs drive feature prioritization and design
+- **Partnership Approach**: Transparent collaboration with continuous stakeholder engagement
 
 ## Planning Philosophy
 
@@ -35,166 +45,217 @@ Flexible, iterative approach featuring:
 - Regular plan refinement
 - Rapid course correction
 
-## Key Planning Documents
-
-### [Timeline](/project-planning/timeline)
-Detailed 11-month implementation roadmap with:
-- Phase-by-phase breakdown
-- Critical milestones and deliverables  
-- Resource allocation planning
-- Payment schedule alignment
-
-**Key Highlights:**
-- 3-phase approach: Foundation → Production → Deployment
-- Monthly milestone tracking
-- Built-in contingency buffers
-- Clear go/no-go decision points
-
-### [Risk Management](/project-planning/risk-management)
-Comprehensive risk assessment framework covering:
-- Technical, business, and operational risks
-- Quantified probability and impact analysis
-- Detailed mitigation strategies
-- Continuous monitoring protocols
-
-**Key Features:**
-- 15+ identified risks with mitigation plans
-- Risk budget allocation ($125K contingency)
-- Weekly monitoring indicators
-- Escalation protocols
-
-### [Project Timeline](/project-planning/timeline)
-Comprehensive timeline with integrated MVP methodology featuring:
-- **MVP-0**: Month 1 cloud proof-of-concept validation
-- **MVP-1**: Months 2-3 edge demonstration and custom training  
-- **MVP-2**: Months 4-7 production integration and deployment
-
-**Strategic Benefits:**
-- Risk reduction through phased validation
-- Clear milestone-based progress tracking
-- Transparent communication and partnership approach
-- Proven methodology with contingency planning
-
-## Planning Methodology
-
-### Double Diamond Framework
-Our planning follows the proven Double Diamond design process:
+### Three-Phase MVP Strategy
 
 ```
-Discover → Define → Develop → Deliver
-   ↓        ↓        ↓        ↓
-Research  Problem  Solution Design  Implementation
+MVP-0: Cloud Proof of Concept  →  MVP-1: Edge Demonstration  →  MVP-2: Production Integration
+    (Validate Core Concept)         (Prove Real-Time Capability)      (Deploy Operational System)
+      Month 1: $5,000                 Months 2-3: $7,500                Months 4-7: $TBD
 ```
 
-**Discover Phase (Completed):**
-- Market research and competitive analysis
-- Stakeholder interviews and persona development
-- Technical feasibility assessment
-- Risk and constraint identification
+**Total Investment**: $30,000 over 7 months using Time & Materials framework ($75/hour, $5K monthly cap)
 
-**Define Phase (Completed):**
-- Requirements specification
-- Success criteria definition
-- Architecture decisions
-- Resource planning
+## MVP Phase Details
 
-**Develop Phase (Current):**
-- MVP implementation
-- Iterative development
-- Performance optimization
-- Integration testing
+### MVP-0: Cloud Proof of Concept
+**Duration**: Month 1 (4 weeks)  
+**Investment**: $5,000  
+**Objective**: Prove technical feasibility with minimal investment using cloud resources and archived footage
 
-**Deliver Phase (Upcoming):**
-- Production deployment
-- Operator training
-- Performance validation
-- Operational handover
+#### Core Components & Activities
+- **Cloud Infrastructure**: AWS/Azure GPU instances
+- **Model Deployment**: Pre-trained YOLOv8x (COCO and other public datasets) with PyTorch/CUDA
+- **Data Pipeline**: S3/Blob storage for video archives, frame extraction, preprocessing
+- **Proxy Strategy**: Validate truck-as-excavator detection correlation (target: 70%+)
+- **Performance Baseline**: Establish FPS, latency, accuracy metrics
 
-### Hypothesis-Driven Development
+#### Key Deliverables
+1. **Proof-of-Concept Video**: Screen recording showing detection on VanGuard footage
+2. **Performance Baseline Report**: FPS, latency, accuracy metrics with confidence intervals
+3. **Proxy Strategy Validation**: Proxy threat class viability
+4. **Go/No-Go Decision**: Data-driven recommendation for MVP-1 advancement
 
-Each phase is structured around testable hypotheses:
+#### Success Criteria
+- ✓ Video ingestion pipeline functional
+- ✓ YOLO model running on aerial footage at 10-30 FPS
+- ✓ Proxy threat class detection rate over 70% correlation
+- ✓ False positive rate under 30% on non-threat objects
 
-**Technical Hypotheses:**
-- Edge computing can achieve over 10 FPS performance
-- YOLOv8 can be optimized for aerial imagery
-- Proxy detection strategy will be effective
+---
 
-**Business Hypotheses:**
-- Operators will trust AI-generated alerts
-- System will deliver over 85% AIR
-- ROI targets are achievable
+### MVP-1: Edge Demonstration & Custom Training
+**Duration**: Months 2-3 (6 weeks)  
+**Investment**: $7,500  
+**Objective**: Demonstrate real-time processing on edge hardware with custom dataset development
 
-**Data Hypotheses:**
-- Sufficient training data can be acquired
-- Domain transfer from DOTA will be effective
-- Continuous learning will improve accuracy
+#### Core Components & Activities
+- **Custom Data Collection**: 500-1,000 professionally annotated pipeline-specific images
+- **Model Fine-Tuning**: Custom YOLOv8 training on VanGuard dataset with transfer learning
+- **Edge Hardware**: Deploy on NVIDIA Jetson Xavier NX or RTX-based mini-PC
+- **Real-Time Pipeline**: Live video capture, preprocessing, inference, alert generation
+- **Performance Optimization**: TensorRT optimization for 10-15 FPS target
 
-## Resource Planning
+#### Key Deliverables
+1. **Custom Annotated Dataset**: 500-1,000 professionally labeled images
+2. **Fine-Tuned Model Package**: Optimized YOLOv8 model with training logs
+3. **Edge Hardware Prototype**: Configured system with live processing capability
+4. **Live Demo System**: Real-time detection with alert overlay interface
+5. **Performance Analysis**: Comprehensive comparison against baseline model
 
-### Team Structure
-- **Lead Consultant** (60% allocation): Project oversight
-- **ML Engineer** (80% allocation): Computer vision development
-- **Software Engineer** (70% allocation): System integration
-- **Data Engineer** (40% allocation): Dataset and pipeline
-- **Integration Specialist** (30% allocation): VanGuard systems
+#### Success Criteria
+- ✓ Measurable accuracy improvement over pre-trained baseline
+- ✓ 10-15 FPS sustained processing on target hardware
+- ✓ Successful detection of pipeline-specific threat classes
+- ✓ End-to-end pipeline operational 
 
-### Budget Allocation
-- **Phase 1**: $154K (Foundation & Validation)
-- **Phase 2**: $345K (Production Development)
-- **Phase 3**: $183K (Deployment & Operations)
-- **Total Project**: $683K with 18% risk contingency
+---
 
-### Success Metrics
-- **Technical**: Over 10 FPS, over 85% AIR, over 99% uptime
-- **Business**: $7.8M cost avoidance, 4,208% ROI
-- **Operational**: Under 2 hours training time, over 4/5 satisfaction
+### MVP-2: Production Integration & Deployment
+**Duration**: Months 4-7 (12 weeks)  
+**Investment**: $TBD  
+**Objective**: Deploy fully integrated operational system on VanGuard's Falcon pod platform
 
-## Quality Assurance
+#### Core Components & Activities
+- **VanGuard Integration**: Full Falcon pod deployment on NVIDIA Jetson AGX Orin or similar hardware stack
+- **iPad Interface**: Native alert integration via WebSocket API and JSON messaging
+- **GPS/KMZ Integration**: Geofence validation with pipeline corridor mapping
+- **Production Hardening**: Robust error handling, containerized deployment, monitoring
+- **Field Testing**: Ground testing, test flights, operational validation
 
-### Planning Quality Controls
-- Monthly plan reviews with stakeholders
-- Weekly risk assessment updates
-- Continuous budget and timeline monitoring
-- Regular assumption validation
+#### Key Deliverables
+1. **Production System**: Fully integrated Falcon pod deployment
+2. **iPad Interface**: Native alert integration with existing workflow
+3. **Operator Dashboard**: Real-time monitoring and feedback interface
+4. **Field Test Report**: Comprehensive validation results and performance metrics
+5. **Training Materials**: Complete operator guides and system documentation
 
-### Documentation Standards
-- Living documents updated in real-time
-- Version control for all planning artifacts
-- Clear ownership and approval processes
-- Stakeholder accessibility and transparency
+#### Success Criteria
+- ✓ Zero disruption to existing operator workflows
+- ✓ Over 85% Actionable Intelligence Rate achieved
 
-### Success Tracking
-- KPI dashboards for all metrics
-- Monthly steering committee reviews
-- Quarterly executive briefings
-- Continuous improvement feedback loops
+## Monthly Implementation Timeline
 
-## Stakeholder Alignment
+### Month 1: MVP-0 - Cloud Proof of Concept
+**Week 1: Infrastructure Design & Dataset Selection**
+- Cloud storage and message queue setup for raw imagery, GPS logs, detection metadata
+- Evaluate public aerial datasets (COCO, DOTA, xView) for "trees," "vehicles," "people", and other classes
+- Test proxy strategy using common threat classes as proxy
+- Set up AWS/Azure GPU instances for cloud processing
 
-### Communication Strategy
-- **Weekly**: Team standups and progress updates
-- **Bi-weekly**: VanGuard stakeholder synchronization
-- **Monthly**: Executive steering committee meetings
-- **Quarterly**: Board-level progress presentations
+**Week 2: Technology Stack Implementation**  
+- Deploy Roboflow for annotation, normalization, and augmentation
+- Implement Ultralytics YOLOv8 training framework with TensorRT/ONNX export
+- Build Python + OpenCV inference loop and GPS overlay integration
+- Create frame-extraction and preprocessing pipeline (resize to 640×640, normalization)
 
-### Decision Framework
-- Clear escalation paths for issues
-- Defined approval authorities
-- Transparent decision documentation
-- Regular stakeholder pulse checks
+**Week 3: Dataset Validation & Model Testing**
+- Assess domain transfer effectiveness from public to pipeline-specific imagery
+- Build batch processing workflows for archived footage analysis
+- Deploy and test pre-trained model on VanGuard archived footage
+- Validate proxy detection correlation on known excavator instances
 
-## Next Steps
+**Week 4: Performance Analysis & Go/No-Go Decision**
+- Complete proof-of-concept demo with screen recording
+- Generate performance baseline report with FPS, latency, accuracy metrics
+- Conduct comprehensive proxy strategy validation analysis
+- Present go/no-go analysis and recommendation for MVP-1
 
-### Immediate Priorities (Next 30 Days)
-1. **MVP-0 Completion**: Finish cloud-based proof-of-concept
-2. **Resource Confirmation**: Finalize team assignments
-3. **Stakeholder Alignment**: Confirm requirements and success criteria
-4. **Risk Monitoring**: Establish weekly risk review cadence
+---
 
-### Medium-term Focus (Next 90 Days)
-1. **MVP-1 Development**: Edge computing demonstration
-2. **Dataset Preparation**: Begin custom data collection
-3. **Integration Planning**: Detailed VanGuard system analysis
-4. **Operator Engagement**: Begin user research and feedback collection
+### Month 2: MVP-1 Phase 1 - Custom Dataset Development
+**Week 1-4+: Data Collection & Annotation Planning**
+- Plan systematic aerial data collection across pipeline corridors
+- Capture representative imagery from multiple seasons and environmental conditions
+- Set up professional annotation pipeline for pipeline-specific classes
+- Target: 500-1,000 professionally annotated images
 
-This planning framework provides the foundation for successful PipelineVision implementation while maintaining flexibility to adapt based on learning and changing requirements.
+**Week 3-4: Model Fine-Tuning & Edge Hardware Setup**
+- Annotate custom classes: fallen trees, exposed pipes, construction equipment, personnel
+- Fine-tune pre-trained YOLOv8 model on custom VanGuard dataset
+- Deploy on NVIDIA Jetson Xavier NX or RTX-based mini-PC
+- Implement transfer learning with performance tracking against baseline
+
+---
+
+### Month 3: MVP-1 Phase 2 - Edge Demonstration
+**Week 1-2: Real-Time Processing Pipeline**
+- Implement real-time video capture and preprocessing
+- Deploy edge AI inference with optimized model
+- Create telemetry overlay for data and alert generation system
+- Optimize for 10-15 FPS target performance with power management
+
+**Week 3-4: Live Demo System & Validation**
+- Complete live demo system with real-time detection capabilities
+- Conduct comprehensive performance analysis vs baseline model
+- Validate custom threat class detection effectiveness
+- Prepare stakeholder demonstration and collect feedback
+
+---
+
+### Months 4-7: MVP-2 - Production Integration (Prospective)
+**Month 4: VanGuard System Integration**
+- Full Falcon pod deployment planning and hardware integration
+- iPad alert integration via WebSocket API and JSON messaging
+- GPS/KMZ geofence validation with pipeline corridor mapping
+- Initial system integration testing and validation
+
+**Month 5: Production Hardening & Testing**
+- Implement robust error handling and automatic recovery systems
+- Deploy containerized system with Docker for reliability
+- Establish continuous monitoring and health check systems
+- Conduct comprehensive ground testing with full system integration
+
+**Month 6+: Field Testing & Operator Integration**
+- Execute test flights with operational validation
+- Develop operator feedback loop for continuous model improvement
+- Implement alert confirmation/dismissal workflow
+- Create performance dashboard for real-time system monitoring
+
+
+## Risk Management & Contingencies
+
+### Primary Risk Mitigation
+
+**Data Domain Gap (MVP-0)**
+- **Risk**: Public aerial datasets may not represent VanGuard's environment
+- **Mitigation**: Robust proxy validation, synthetic data augmentation, rapid pivot capability
+
+**Edge Performance (MVP-1)**  
+- **Risk**: Hardware may not achieve 10-15 FPS target
+- **Mitigation**: Model compression, hybrid processing, hardware upgrade path
+
+**Integration Complexity (MVP-2)**
+- **Risk**: Unexpected compatibility issues with VanGuard systems
+- **Mitigation**: Early discovery sessions, prototype testing, multiple interface options
+
+### Contingency Planning
+- **Budget Contingency**: Need funding for hardware, cloud costs, integration challenges
+- **Timeline Flexibility**: 2-week buffer per phase, parallel workstream opportunities
+- **Pivot Options**: Clear go/no-go gates with alternative approaches identified
+
+### Success Assurance
+- **Transparent Reporting**: Weekly progress updates and monthly stakeholder reviews
+- **Quality Gates**: Data-driven decision points with clear success criteria
+- **Partnership Approach**: Continuous VanGuard collaboration and feedback integration
+
+## Communication & Partnership Framework
+
+### Go/No-Go Decision Gates
+- **End of MVP-0**: Proxy strategy validation (70%+ correlation required)
+- **End of MVP-1**: Edge processing validation (10-15 FPS achieved)
+- **End of MVP-2**: Production readiness (85%+ AIR, 99%+ uptime)
+
+## Next Steps & Engagement
+
+### Immediate Actions (Next 30 Days)
+1. **Contract Approval**: Review and approve MVP timeline and T&M framework
+2. **Kick-off Workshop**: Requirements validation and success criteria alignment  
+3. **Environment Setup**: Cloud infrastructure and development pipeline
+4. **MVP-0 Initiation**: Begin proof-of-concept with 4-week delivery target
+
+### Partnership Commitment
+Aligned with VanGuard's success through:
+- **Transparent Communication**: Regular updates and open collaboration
+- **Flexible Methodology**: Adaptive approach based on learning and feedback
+- **Quality Assurance**: Rigorous testing and validation at each phase
+- **Knowledge Transfer**: Complete documentation and operator training

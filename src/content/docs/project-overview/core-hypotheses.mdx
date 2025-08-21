@@ -53,16 +53,14 @@ Confirms the core detection concept and avoids wasted effort on custom hardware 
 <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 my-4">
 **MVP-0 (Cloud Proof of Concept)**
 - Test YOLOv8 on archived VanGuard footage
-- Use "truck" class as excavator proxy
-- Measure recall rates on known excavator instances
+- Use "truck" or other pretrained class as proxy to prove viability
 - Validate detection confidence thresholds
 </div>
 
 #### Success Criteria
-- **Detection Rate**: 70% or higher recall on excavator-like objects
+- **Detection Rate**: 70% or higher recall on chosen classes / objects
 - **Processing Time**: Less than 5 seconds per frame (cloud processing acceptable)
 - **False Positive Rate**: Less than 20% on non-threat objects
-- **Data Requirements**: Successfully process 100+ hours of archived footage
 - **Training Capability**: Successfully complete model training run within budget and timeline
 
 ---
@@ -93,10 +91,7 @@ Ensures the system can deliver instant alerts in flight without cloud dependency
 - **Sustained Performance**: 10 FPS or higher for 30+ minute sessions
 - **Detection Performance**: 70% or higher recall, 5% or fewer false positives
 - **Resource Usage**: Less than 80% GPU utilization, less than 70% CPU utilization
-- **Power Consumption**: Less than 50W total system draw
-- **Power**: Less than 50W from existing aircraft power
 - **Space**: Fits within available sensor pod volume
-- **Cooling**: Operates without additional cooling systems
 
 ---
 
@@ -104,7 +99,7 @@ Ensures the system can deliver instant alerts in flight without cloud dependency
 **Strategic Objective**: Embed AI alerts into VanGuard's existing sensor pod and operator interface with zero workflow disruption.
 
 #### Atomic Hypothesis
-AI-generated bounding boxes and alerts can be streamed into the iPad app in under 100 ms, matching the pod's autotrack refresh rate.
+AI-generated bounding boxes and alerts can be streamed into the iPad app, matching the pod's autotrack refresh rate.
 
 #### Why It Matters
 Protects operator focus and leverages established processes, maximizing adoption and minimizing training requirements.
@@ -119,11 +114,10 @@ Protects operator focus and leverages established processes, maximizing adoption
 </div>
 
 #### Success Criteria
-- **Alert Latency**: Less than 100ms from detection to iPad display
+- **Alert Latency**: Low latency from detection to iPad display
 - **Interface Integration**: Zero changes to core operator workflow
 - **System Compatibility**: No interference with existing autotrack functions
-- **Reliability**: 99% or higher uptime during flight operations
-- **User Acceptance**: 85% or higher operator satisfaction in usability testing
+- **Reliability**: 90% or higher uptime during flight operations
 
 ---
 
@@ -174,7 +168,7 @@ Aligns with VanGuard's planning cycles and ensures timely ROI realization while 
 
 #### Success Criteria
 - **MVP-0 Completion**: Cloud validation delivered within 4 weeks
-- **MVP-1 Completion**: Edge demonstration achieved within 6 weeks
+- **MVP-1 Completion**: Edge demonstration achieved within 8 weeks
 - **MVP-2 Completion**: Production system deployed within 12 weeks
 - **Go/No-Go Gates**: Clear success criteria met before phase advancement
 - **Risk Mitigation**: Pivot capability maintained at each phase boundary
@@ -229,16 +223,7 @@ The hypotheses have clear dependencies and validation sequences:
 1. **Market Viability**: Can AI threat detection create a defensible competitive advantage?
 2. **Technical Feasibility**: Can edge AI processing meet real-time flight requirements?
 3. **Integration Complexity**: Can we enhance existing systems without disrupting operations?
-4. **Operator Adoption**: Will pilots trust and effectively use AI-generated alerts?
-5. **Economic Return**: Does the system generate sufficient ROI to justify investment?
-
-### Secondary Business Questions
-
-1. **Scalability**: Can the solution extend to VanGuard's full fleet?
-2. **Maintenance**: What ongoing support and model updates are required?
-3. **Regulatory**: Are there certification or compliance implications?
-4. **Competition**: How does this position VanGuard against competitive threats?
-
+4. **Economic Return**: Does the system generate sufficient ROI to justify investment?
 ---
 
 ## Related Documentation
