@@ -1,0 +1,47 @@
+---
+interface Props {
+  variant?: 'inline' | 'footer' | 'page';
+  className?: string;
+}
+
+const { variant = 'inline', className = '' } = Astro.props;
+
+const baseClasses = "text-sm text-muted-foreground";
+const variantClasses = {
+  inline: "bg-muted/50 border border-border rounded-lg p-4 my-6",
+  footer: "text-xs opacity-80 mt-4 pt-4 border-t border-border/20",
+  page: "bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-6 my-8"
+};
+---
+
+<div class={`${baseClasses} ${variantClasses[variant]} ${className}`}>
+  {variant === 'footer' ? (
+    <div class="flex flex-col gap-2">
+      <p class="font-medium text-xs">Important Notice</p>
+      <p>
+        Technical designs, claims, timelines, and specifications presented in this documentation are subject to change depending on project evolution, stakeholder alignment, and as additional data becomes available. All content is theoretical and represents our best understanding at the time of proposal preparation.
+      </p>
+    </div>
+  ) : (
+    <div class="flex items-start gap-3">
+      <div class="flex-shrink-0 mt-0.5">
+        <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <div class="flex-1">
+        <p class="font-medium text-sm mb-2">
+          {variant === 'page' ? 'Project Documentation Disclaimer' : 'Important Notice'}
+        </p>
+        <p class="text-sm leading-relaxed">
+          Technical designs, claims, timelines, and specifications presented in this documentation are subject to change depending on project evolution, stakeholder alignment, and as additional data becomes available. All content is theoretical and represents our best understanding at the time of proposal preparation.
+        </p>
+        {variant === 'page' && (
+          <p class="text-xs mt-3 opacity-75">
+            This documentation serves as a comprehensive reference for the PipelineVision project proposal and should be considered as evolving specifications rather than final commitments.
+          </p>
+        )}
+      </div>
+    </div>
+  )}
+</div>

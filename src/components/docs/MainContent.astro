@@ -2,6 +2,7 @@
 import Datetime from "@/components/core/Datetime";
 
 import Breadcrumbs from "@/components/docs/Breadcrumbs.astro";
+import Disclaimer from "@/components/ui/Disclaimer.astro";
 
 import type { MainContentProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
@@ -41,5 +42,9 @@ const {
   <div class="prose pt-4">
     <slot />
   </div>
+  
+  <!-- Project Documentation Disclaimer -->
+  <Disclaimer variant="page" />
+  
   <BacktoTop />
 </div>

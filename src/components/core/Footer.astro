@@ -1,5 +1,6 @@
 ---
 import { SITE } from "@/config";
+import Disclaimer from "@/components/ui/Disclaimer.astro";
 
 // To pass the tailwindcss classes to the astro component
 const { class: className } = Astro.props;
@@ -29,5 +30,8 @@ const { class: className } = Astro.props;
         </span>
       </div>
     </div>
+    
+    <!-- Disclaimer -->
+    <Disclaimer variant="footer" />
   </div>
 </footer>

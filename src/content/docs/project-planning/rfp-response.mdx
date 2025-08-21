@@ -1,5 +1,5 @@
 ---
-title: "RFP Response & Statement of Work"
+title: "Proposal & Statement of Work"
 description: "Comprehensive proposal for PipelineVision aerial inspection system with detailed pricing and engagement model"
 author: "Theodore Zipoy"
 publishDate: 2025-01-20
@@ -44,7 +44,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 
 **Timeline**: Month 1 (4 weeks)  
 **Investment**: $5,000  
-**Estimated Effort**: 70 hours
+**Estimated Effort**: ~72 hours
 
 #### Core Activities
 
@@ -57,11 +57,11 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - **Roboflow**: Annotation, normalization, and augmentation platform
 - **Ultralytics YOLOv8**: Training framework with TensorRT/ONNX export capability
 - **Python + OpenCV**: Inference loop and GPS overlay integration
-- **AWS/GCP**: A100 GPU instances for cloud processing
+- **AWS/Azure/GCP**: GPU instances for cloud processing
 
 **Dataset Validation**
-- Evaluate public aerial datasets (COCO, DOTA, xView, ) for "trees," "vehicles," "people"
-- Test proxy strategy using "light / heavy vehicle" class as excavator detection proxy
+- Evaluate public aerial datasets (COCO, DOTA, xView, VisDrone, etc.) for "trees," "vehicles," "people", and other classes
+- Test viability using "light / heavy vehicle" class as proxy for chosen classes
 - Assess domain transfer effectiveness from public to pipeline-specific imagery
 
 **Deliverables**
@@ -81,14 +81,14 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 
 ### Phase 2: MVP-1 - Custom Dataset & Edge Demo
 
-**Timeline**: Month 2-3 (6 weeks)  
+**Timeline**: Month 2-3
 **Investment**: $5,000-$7,500
-**Estimated Effort**: 100 hours
+**Estimated Effort**: ~100 hours
 
 #### Core Activities
 
 **Custom Data Collection**
-- Create strategy to assess and close gas in data and pipeline
+- Create strategy to assess and close gaps in data and pipeline
 - Plan and execute systematic aerial data collection across pipeline corridors
 - Capture representative imagery from multiple seasons and environmental conditions, synthetic data augmentation, and other methods
 - Target volume: 500-1,000 professionally annotated images
@@ -127,7 +127,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 
 **Timeline**: Months 4-6 (12 weeks)  
 **Investment**: $TBD  
-**Estimated Effort**: 140 hours
+**Estimated Effort**: TBD hours
 
 #### Core Activities
 
@@ -186,15 +186,14 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 1. **Data Validation** (Weeks 1-4): Must confirm viability of our strategy before hardware investment
 2. **Custom Dataset** (Weeks 5-8): Required for meaningful model fine-tuning and validation
 3. **Edge Performance** (Weeks 7-10): Must achieve real-time processing before integration
-4. **VanGuard Integration** (Weeks 11-18): Critical for operational deployment success
+4. **System Integration** (Weeks 11-18): Critical for operational deployment success
 
 ## Engagement Model & Pricing
 
 ### Time & Materials Framework
 
 **Consulting Rate**: $70/hour  
-**Monthly Billing Cap**: $5,000 (~70 hours)  
-**Total Project Investment**: $30,000 over 5.5 months
+**Monthly Billing Cap**: $5,000 (~72 hours)  
 
 #### Billing Structure
 - **Monthly Invoicing**: Detailed time logs and deliverable status
@@ -350,7 +349,7 @@ The system follows a modular, edge-first architecture:
 
 ### Partnership Commitment
 
-We're committed to making real-time threat detection a reality at VanGuard. The methodology, transparent approach, and flexible engagement model ensure successful delivery while minimizing risk and maximizing value.
+### We're committed to making real-time threat detection a reality at VanGuard. The methodology, transparent approach, and flexible engagement model ensure successful delivery while minimizing risk and maximizing value.
 ---
 
 ## Related Documentation
