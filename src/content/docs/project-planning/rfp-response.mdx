@@ -14,11 +14,11 @@ import { Card } from '@/components/docs/Card';
 
 ## Executive Summary
 
-The core objective of this engagement is to deliver a proof-of-concept aerial pipeline inspection system that integrates high-resolution imagery from VanGuard's Sony ILX-LR1 industrial camera with real-time AI inference (YOLOv8) and geospatial tagging. This will be achieved through a three-phase MVP approac. We will deliver a bench-ready solution, progress to edge processing, and culminate in a fully integrated flight-ready system.
+The core objective of this engagement is to deliver a proof-of-concept aerial pipeline inspection system that integrates high-resolution imagery from VanGuard's Sony ILX-LR1 industrial camera (or appropriate hardware) with real-time AI inference (YOLOv8) and geospatial tagging. This will be achieved through a three-phase MVP approach. We will deliver a bench-ready solution, progress to edge processing, and culminate in a fully integrated flight-ready system.
 
 ### Mission Alignment
 
-**PipelineVision accelerates VanGuard's pipeline safety leadership** by integrating advanced computer vision into your proven Falcon pod system. The planned data-driven MVP roadmap validates core AI concepts, then iterates through live edge demos, and lastly in-flight deployments—balancing speed, cost, and risk. 
+**PipelineVision accelerates VanGuard's pipeline safety leadership** by integrating advanced computer vision into your proven Falcon pod system. The planned data-driven MVP roadmap validates core AI concepts, then iterates through live edge demos, and lastly in-flight deployments intending to balance speed, cost, and risk. 
 
 
 ## Project Understanding
@@ -49,7 +49,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 #### Core Activities
 
 **Data Pipeline & Infrastructure**
-- Set up cloud storage and message queues for raw imagery, GPS logs, and detection metadata
+- Set up cloud storage and pipelines for raw imagery, GPS logs, and detection metadata
 - Build frame-extraction and preprocessing pipeline (resize to 640×640, normalization)
 - Implement batch processing workflows for archived footage analysis
 
@@ -63,6 +63,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - Evaluate public aerial datasets (COCO, DOTA, xView, VisDrone, etc.) for "trees," "vehicles," "people", and other classes
 - Test viability using "light / heavy vehicle" class as proxy for production classes
 - Assess domain transfer effectiveness from public to pipeline-specific imagery
+- Document the data landscape and the limitations, identify remediations
 
 **Deliverables**
 1. **Architecture Diagram**: Complete system design and data flow
@@ -74,7 +75,6 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 #### Success Metrics
 - **Detection Rate**: 70% or higher recall on proxy validations (light / heavy vehicle)
 - **Processing Speed**: 10-30 FPS sustained on cloud infrastructure
-- **False Positive Rate**: Under 30% on non-threat objects
 - **Domain Transfer**: Measurable performance on VanGuard archived footage
 
 ---
@@ -119,11 +119,11 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - **Model Improvement**: Measurable accuracy gain over pre-trained baseline
 - **Edge Performance**: 10-15 FPS sustained processing on target hardware
 - **Custom Classes**: Successful detection of pipeline-specific threats
-- **System Integration**: End-to-end pipeline operational with `Under 200ms` latency
+- **System Integration**: End-to-end pipeline operational with low latency
 
 ---
 
-### Phase 3: MVP-2 - Production Integration
+### Phase 3: MVP-2 - Production Integration (Prospective)
 
 **Timeline**: Months 4-6 (12 weeks)  
 **Investment**: $TBD  
@@ -136,6 +136,17 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 - iPad alert integration via WebSocket API and JSON messaging
 - GPS/KMZ geofence validation with pipeline corridor mapping
 - DC - DC power system and supporting infrastructure / hardware design
+
+**Hardware Design & System Integration**
+- Design ruggedized enclosure for aerial deployment
+- Implement DC-DC power system for aircraft integration
+- Design system health monitoring with temperature, voltage, and performance telemetry
+- Engineer compact form factor optimized for environment
+
+**System Packaging & Integration**
+- Implement cable management system with strain relief
+- Design operator interface panel with status indicators and manual controls
+- Develop comprehensive system testing protocols for pre-flight validation
 
 **Production Hardening**
 - Implement robust error handling and automatic recovery systems
@@ -162,8 +173,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 #### Success Metrics
 - **Integration Success**: Zero disruption to existing operator workflows
 - **Performance**: `Over 85`% Actionable Intelligence Rate achieved
-- **Reliability**: `Over 99`% system uptime during flight operations
-- **Operator Adoption**: `Over 90`% operator satisfaction in usability testing
+- **Reliability**: `Over 90`% system uptime during flight operations
 
 ## Comprehensive Workplan & Timeline
 
@@ -217,7 +227,7 @@ Automate detection of pipeline threats (fallen trees, exposed pipes, constructio
 **Probability**: High (60%)  
 **Pivot Strategy**: 
 - Incorporate synthetic data augmentation
-- Expedite licensing of specialized datasets
+- Expedite licensing or purchase of specialized datasets
 - Focus on robust proxy validation methodology
 
 #### Risk #2: Edge Compute Performance (MVP-1)
@@ -348,7 +358,7 @@ The system follows a modular, edge-first architecture:
 
 ### Partnership Commitment
 
-### We're committed to making real-time threat detection a reality at VanGuard. The methodology, transparent approach, and flexible engagement model ensure successful delivery while minimizing risk and maximizing value.
+> **"We're committed to making real-time threat detection a reality at VanGuard."**
 ---
 
 ## Related Documentation
