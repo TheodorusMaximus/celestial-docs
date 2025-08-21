@@ -13,11 +13,11 @@ import { Card } from '@/components/docs/Card';
 
 ## Executive Summary
 
-PipelineVision is an AI-powered computer vision system designed to enhance VanGuard Pipeline's existing Falcon pod platform with real-time threat detection capabilities. This project automates the identification of construction threats like excavators along pipeline corridors—moving beyond gas detection to create a more comprehensive safety net.
+PipelineVision is an AI-powered computer vision system designed to enhance VanGuard Pipeline's existing Falcon pod platform with real-time threat detection capabilities using computer vision. This project automates the identification of threats along pipeline corridors moving beyond gas detection to create a more comprehensive safety net.
 
 ## The Opportunity
 
-VanGuard Pipeline Inspection has built an exceptional business providing real-time, in-cockpit methane detection. However, detection of physical threats to pipeline right-of-way still relies entirely on manual visual scanning, creating critical challenges:
+VanGuard Pipeline Inspection has built an exceptional business providing real-time, in-cockpit methane detection. However, detection of physical threats to pipeline right-of-way still primarily relies on manual visual scanning, creating critical challenges:
 
 ### Human Factors Risk
 Continuous visual scanning over 4-6 hour flights causes cognitive fatigue and missed threats
@@ -31,17 +31,17 @@ While VanGuard leads in methane detection, competitors are advancing in automate
 ## Project Objectives
 
 ### Primary Objectives
-- **Automated Threat Detection**: Achieve 70%+ recall with under 5% false positive rate for excavator-class threats
-- **Real-Time Processing**: Deliver 10+ FPS inference on edge hardware with under 200ms latency per frame
+- **Automated Threat Detection**: Achieve 70%+ recall with under 5% false positive rate for chosen threat classes
+- **Real-Time Processing**: Deliver 10+ FPS inference on edge hardware with low latency per frame
 - **Operator Trust**: Maintain 85%+ Actionable Intelligence Rate (AIR) with under 1 false alarm per 3 flight hours
-- **Seamless Integration**: Zero disruption to existing VanGuard workflows with under 100ms alert delivery
+- **Seamless Integration**: Zero disruption to existing VanGuard workflows with low latency alert delivery
 
 ### Secondary Objectives
 
 #### **Technical Foundation & Infrastructure**
 - **Establish CV Architecture**: Design scalable computer vision pipeline supporting multiple model types and threat classes
 - **Edge Computing Framework**: Create standardized deployment architecture for AI models across VanGuard's fleet
-- **Data Infrastructure**: Build robust data ingestion, storage, and processing pipeline for continuous learning
+- **Data Infrastructure**: Build robust data ingestion, storage, and processing pipeline for continuous learning and model improvement
 
 #### **Data Strategy & Intelligence**
 - **Current State Assessment**: Comprehensive audit of existing aerial footage, annotation quality, and data gaps
@@ -61,7 +61,7 @@ While VanGuard leads in methane detection, competitors are advancing in automate
 ### In Scope
 - **MVP-0**: Cloud-based proof-of-concept using archived footage and proxy detection strategy
 - **MVP-1**: Edge computing demonstration on hardware with custom dataset and model development
-- **MVP-2**: Full Falcon pod integration with hardware designs
+- **MVP-2**: Full Falcon pod integration with hardware design and deployment
 - YOLOv8-based computer vision model optimized for pipeline threat detection
 - Integration with existing Sony ILX-LR1 camera systems and autotrack functionality
 - GPS/KMZ geofence validation and threat location logging
@@ -76,12 +76,6 @@ While VanGuard leads in methane detection, competitors are advancing in automate
 - Custom hardware development or sensor procurement
 
 
-### MVP-Specific Success Gates
-- **MVP-0**: 70%+ proxy detection correlation validated in cloud environment
-- **MVP-1**: Real-time edge processing achieved at target performance levels
-- **MVP-2**: 85%+ Actionable Intelligence Rate confirmed on board plane
-
-
 ## Strategic Constraints & Design Considerations
 
 ### Technical Architecture Constraints
@@ -89,8 +83,6 @@ While VanGuard leads in methane detection, competitors are advancing in automate
 **Edge Computing Imperatives**
 - **Connectivity Independence**: Flight operations cannot depend on reliable cellular/satellite connectivity
 - **Latency Minimization**: Cloud processing introduces unacceptable 200-500ms round-trip delays
-- **Data Privacy**: Pipeline corridor imagery contains sensitive infrastructure information requiring local processing
-- **Power and Thermal Management**: Aircraft pods have strict power budgets and cooling limitations
 
 **Computer Vision Complexity**
 - **Domain Adaptation Challenge**: Aerial perspective creates significant differences from ground-based training data
@@ -100,13 +92,13 @@ While VanGuard leads in methane detection, competitors are advancing in automate
 ### Business and Strategic Constraints
 
 **Investment Framework Boundaries**
-Our $10K Time & Materials and flexible approach reflects VanGuard's prudent risk management—validate core assumptions before major capital commitment. This constraint actually enables rapid iteration and pivot capability.
+Time & Materials billing reflects VanGuard's prudent risk management—validate core assumptions before major capital commitment. This constraint actually enables rapid iteration and pivot capability.
 
 **Competitive Timing Pressures**
 The pipeline inspection market is consolidating. VanGuard's window to establish AI leadership is finite—competitors are advancing in automated detection capabilities. This creates urgency balanced against technical rigor.
 
 **Stakeholder Adoption Dynamics**
-Experienced pilots have high standards for system reliability and intuitive interfaces. False alarms erode trust faster than missed detections build confidence. Our 85% Actionable Intelligence Rate target reflects this psychological reality.
+Experienced pilots have high standards for system reliability and intuitive interfaces. False alarms erode trust faster than missed detections build confidence. 
 
 ### Data and Learning Constraints
 
@@ -114,7 +106,7 @@ Experienced pilots have high standards for system reliability and intuitive inte
 Unlike autonomous vehicles with millions of hours of footage, pipeline-specific aerial threat detection lacks comprehensive datasets. This drives our proxy strategy approach and progressive data collection methodology.
 
 **Annotation Expertise Requirements**
-Effective threat classification requires domain expertise—not all "excavators" pose equal risk. Professional annotation from pipeline safety experts is essential but expensive and time-intensive.
+Effective threat classification requires domain expertise i.e. not all excavators pose equal risk depending on proximity to pipeline corridor. Professional annotation is essential but expensive and time-intensive.
 
 **Continuous Learning Paradox**
 Systems must improve from operational data while maintaining consistent performance. Model updates require careful validation to avoid regression in proven capabilities.
