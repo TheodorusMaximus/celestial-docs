@@ -31,17 +31,44 @@ export const menu_items: { title: string; href: string }[] = [
 
 ];
 
-// Just works with top-level folders and files. For files, don't add extension as it looks for the slug, and not the file name.
+// Navigation structure with static section headers and clickable items
+export const navigation_structure = [
+  {
+    type: 'section',
+    title: 'Overview',
+    items: [
+      'project-overview',
+      'project-overview/core-hypotheses', 
+      'project-overview/technical-data'
+    ]
+  },
+  {
+    type: 'section', 
+    title: 'Planning',
+    items: [
+      'project-planning',
+      'project-planning/rfp-response'
+    ]
+  },
+  {
+    type: 'section',
+    title: 'Resources', 
+    items: [
+      'library',
+      'library/competitor-analysis'
+    ]
+  }
+];
+
+// Legacy support - keeping for backward compatibility
 export const side_nav_menu_order: string[] = [
   "project-overview",
+  "project-overview/core-hypotheses",
   "project-overview/technical-data",
-
-  "project-planning",
-  "project-planning/timeline",
-  "project-planning/risk-management",
-
-
-
+  "project-planning", 
+  "project-planning/rfp-response",
+  "library",
+  "library/competitor-analysis"
 ];
 
 // Don't delete anything. You can use 'true' or 'false'.

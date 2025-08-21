@@ -1,0 +1,83 @@
+---
+import { capitalizeFirstLetter } from "@/lib/utils";
+import { navigation_structure } from "@/config";
+import { getCollection } from "astro:content";
+
+// Get all docs to find titles
+const docs = await getCollection("docs");
+const docsMap = new Map(docs.map(doc => [doc.slug, doc]));
+
+const pathname: string = new URL(Astro.request.url).pathname;
+
+// To pass the tailwindcss classes to the astro component
+const { class: className } = Astro.props;
+
+// Helper function to get page title
+function getPageTitle(slug: string): string {
+  const doc = docsMap.get(slug);
+  if (doc?.data.title) {
+    return capitalizeFirstLetter(doc.data.title);
+  }
+  // Fallback to slug-based title
+  return capitalizeFirstLetter(slug.split("/").pop() || "Home");
+}
+
+// Helper function to get page href
+function getPageHref(slug: string): string {
+  return slug === "" ? "/index" : `/${slug}`;
+}
+
+// Helper function to check if page is active
+function isPageActive(slug: string): boolean {
+  const href = getPageHref(slug);
+  return (slug === "" && (pathname === "/" || pathname === "/index")) || pathname === href;
+}
+---
+
+<div class:list={["space-y-6", className]}>
+  {navigation_structure.map((section) => (
+    <div class="space-y-3">
+      {/* Static Section Header */}
+      <div class="px-3 py-2">
+        <h3 class="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+          {section.title}
+        </h3>
+      </div>
+      
+      {/* Section Items */}
+      <ul class="list-none space-y-1 m-0">
+        {section.items.map((slug) => {
+          const doc = docsMap.get(slug);
+          // Skip if document doesn't exist or is draft
+          if (!doc || doc.data.draft) return null;
+          
+          const label = getPageTitle(slug);
+          const href = getPageHref(slug);
+          const isActive = isPageActive(slug);
+          
+          // Enhanced styling for menu items
+          const baseClasses = "w-full block px-3 py-2.5 rounded-md transition-all duration-200 text-left";
+          const stateClasses = isActive 
+            ? "bg-primary/10 text-primary border-l-4 border-primary shadow-sm font-medium" 
+            : "text-muted-foreground hover:text-foreground hover:bg-muted/50";
+          
+          const finalClassName = `${baseClasses} ${stateClasses}`;
+          
+          return (
+            <li class="w-full">
+              <a
+                href={href}
+                class={`${finalClassName} no-underline text-sm`}
+              >
+                <span class="flex items-center gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-primary/60"></span>
+                  {label}
+                </span>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  ))}
+</div>

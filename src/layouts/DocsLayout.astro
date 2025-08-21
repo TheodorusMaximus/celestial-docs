@@ -4,14 +4,14 @@ import Header from "@/components/core/Header.astro";
 import Footer from "@/components/core/Footer.astro";
 import { Copy } from "@/components/core/Copy";
 
-import SideNavMenu from "@/components/docs/SideNavMenu.astro";
+import SectionedSideNav from "@/components/docs/SectionedSideNav.astro";
 import TableofContent from "@/components/docs/TableofContents.astro";
 import MainContent from "@/components/docs/MainContent.astro";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import type { DocsLayoutProps } from "@/lib/types";
-import { menu, capitalizeFirstLetter } from "@/lib/utils";
+import { capitalizeFirstLetter } from "@/lib/utils";
 
 import { LOCALE, SITE, docconfig } from "@/config";
 
@@ -56,18 +56,9 @@ const {
               {
                 !docconfig.hide_side_navigations && !hide_sidenav && (
                   <div class="p-4">
-
-                    
-                    {/* Navigation Title */}
-                    <div class="mb-4">
-                      <h3 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 px-3">
-                        Navigation
-                      </h3>
-                    </div>
-                    
-                    {/* Main Navigation */}
-                    <nav class="space-y-2">
-                      <SideNavMenu items={menu} level={0} />
+                    {/* Sectioned Navigation */}
+                    <nav>
+                      <SectionedSideNav />
                     </nav>
                   </div>
                 )
