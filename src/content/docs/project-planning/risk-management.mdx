@@ -10,8 +10,6 @@ showTableOfContents: true
 showNavigationLinks: true
 ---
 
-# Risk Management Framework
-
 ## Risk Assessment Overview
 
 The PipelineVision project employs a hypothesis-driven development approach with systematic risk identification, assessment, and mitigation strategies across technical, business, and operational dimensions.
@@ -43,7 +41,7 @@ Dataset acquisition, quality, and model training risks
 **Description**: Unable to acquire sufficient aerial excavator imagery for model training
 
 **Mitigation Strategies**:
-1. **Proxy Detection Strategy**: Use truck class as excavator proxy (validated at ≥70% correlation)
+1. **Proxy Detection Strategy**: Use truck class as excavator proxy (validated at 70% or more correlation)
 2. **Multi-Tier Data Approach**: Combine DOTA + AIDCON + custom collection
 3. **Synthetic Data Generation**: Use domain adaptation and augmentation
 4. **Fallback Option**: Partner with annotation services for rapid dataset creation

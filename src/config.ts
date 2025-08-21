@@ -27,27 +27,21 @@ export const menu_items: { title: string; href: string }[] = [
     title: "Planning",
     href: "/project-planning",
   },
-  {
-    title: "Execution",
-    href: "/project-execution",
-  },
-  {
-    title: "Monitoring",
-    href: "/project-monitoring",
-  },
+
+
 ];
 
 // Just works with top-level folders and files. For files, don't add extension as it looks for the slug, and not the file name.
 export const side_nav_menu_order: string[] = [
   "project-overview",
   "project-overview/technical-data",
-  "project-overview/dictionary-of-terms",
+
   "project-planning",
   "project-planning/timeline",
   "project-planning/risk-management",
-  "project-planning/mvp-planning",
-  "project-execution",
-  "project-monitoring",
+
+
+
 ];
 
 // Don't delete anything. You can use 'true' or 'false'.

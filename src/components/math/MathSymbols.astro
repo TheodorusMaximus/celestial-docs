@@ -1,0 +1,20 @@
+---
+// Mathematical symbol components for MDX
+export interface Props {
+  value?: string | number;
+  className?: string;
+}
+
+const { value = "", className = "" } = Astro.props;
+---
+
+<!-- Greater than -->
+<span class:list={["math-symbol", className]} data-symbol="gt">
+  &gt; {value}
+</span>
+
+<style>
+  .math-symbol {
+    @apply inline-flex items-center;
+  }
+</style>

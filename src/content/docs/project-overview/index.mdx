@@ -11,8 +11,6 @@ showNavigationLinks: true
 
 import { Card } from '@/components/docs/Card';
 
-# PipelineVision: Transforming Pipeline Safety
-
 ## Executive Summary
 
 PipelineVision is an AI-powered computer vision system designed to enhance VanGuard Pipeline's existing Falcon pod platform with real-time threat detection capabilities. This project automates the identification of construction threats like excavators along pipeline corridors—moving beyond gas detection to create a more comprehensive safety net.
@@ -28,103 +26,105 @@ Continuous visual scanning over 4-6 hour flights causes cognitive fatigue and mi
 Undetected excavator strikes cost the industry $30-60 billion annually with 136+ casualties over 10 years
 
 ### Competitive Vulnerability
-While VanGuard leads in methane detection, competitors are advancing in automated threat detection
+While VanGuard leads in methane detection, competitors are advancing in automated threat detection.
 
 ## Project Objectives
 
 ### Primary Objectives
-- **Automated Threat Detection**: Achieve over 90% recall for excavators and exposed pipes
-- **Real-Time Processing**: Deliver over 10 FPS inference on edge hardware during flight
-- **Operator Trust**: Maintain over 85% Actionable Intelligence Rate (AIR)
-- **Seamless Integration**: Zero disruption to existing VanGuard workflows
+- **Automated Threat Detection**: Achieve 70%+ recall with under 5% false positive rate for excavator-class threats
+- **Real-Time Processing**: Deliver 10+ FPS inference on edge hardware with under 200ms latency per frame
+- **Operator Trust**: Maintain 85%+ Actionable Intelligence Rate (AIR) with under 1 false alarm per 3 flight hours
+- **Seamless Integration**: Zero disruption to existing VanGuard workflows with under 100ms alert delivery
 
 ### Secondary Objectives
-- Build foundation for multi-threat detection expansion
-- Create data pipeline for continuous model improvement
-- Enable competitive differentiation through AI capabilities
 
+#### **Technical Foundation & Infrastructure**
+- **Establish CV Architecture**: Design scalable computer vision pipeline supporting multiple model types and threat classes
+- **Edge Computing Framework**: Create standardized deployment architecture for AI models across VanGuard's fleet
+- **Data Infrastructure**: Build robust data ingestion, storage, and processing pipeline for continuous learning
+
+#### **Data Strategy & Intelligence**
+- **Current State Assessment**: Comprehensive audit of existing aerial footage, annotation quality, and data gaps
+- **Data Collection Strategy**: Systematic approach for capturing representative pipeline corridor imagery across seasons/conditions
+- **Annotation Framework**: Professional labeling pipeline with quality control and consistency validation
+
+#### **Future Capability Development**
+- **Multi-Threat Detection Foundation**: Extensible architecture supporting fallen trees, exposed pipes, personnel, vehicles
+- **Geospatial Intelligence Integration**: GPS/KMZ correlation for threat location mapping and historical analysis
+- **Performance Analytics Platform**: Real-time monitoring, alerting, and optimization dashboard for system health
+
+#### **Strategic Business Enablers**
+- **Competitive Differentiation**: First-to-market AI threat detection capability in pipeline inspection
+- **Partnership Ecosystem**: Technical foundation enabling integration with additional sensor types and third-party systems
 ## Project Scope
 
 ### In Scope
-- YOLOv8-based computer vision model for threat detection
-- Edge computing on NVIDIA Jetson AGX Orin hardware
-- Integration with existing Sony ILX-LR1 camera systems
-- iPad interface for operator alerts and feedback
-- GPS/KMZ corridor validation and logging
-- Three-phase MVP development approach
+- **MVP-0**: Cloud-based proof-of-concept using archived footage and proxy detection strategy
+- **MVP-1**: Edge computing demonstration on hardware with custom dataset and model development
+- **MVP-2**: Full Falcon pod integration with hardware designs
+- YOLOv8-based computer vision model optimized for pipeline threat detection
+- Integration with existing Sony ILX-LR1 camera systems and autotrack functionality
+- GPS/KMZ geofence validation and threat location logging
+- Time & Materials consulting framework 
 
 ### Out of Scope
-- Modification of existing gas detection systems
-- Changes to aircraft hardware or certification
-- Cloud-based processing (all inference at edge)
-- Automated flight path adjustments
-- Integration with external reporting systems (Phase 1)
+- Modification of existing methane detection systems or pod hardware
+- Changes to aircraft systems or FAA certification requirements
+- Cloud-based inference processing (all production inference at edge)
+- Automated flight path adjustments or autonomous control systems
+- Integration with external reporting systems or third-party APIs (Phase 1)
+- Custom hardware development or sensor procurement
 
-## Stakeholders
 
-### VanGuard Pipeline Team
-- **Operators**: Alex "Eagle Eye" Rivera persona - experienced pilots requiring trust in AI alerts
-- **Management**: Seeking competitive advantage and operational efficiency
-- **Technical Team**: Responsible for system integration and maintenance
+### MVP-Specific Success Gates
+- **MVP-0**: 70%+ proxy detection correlation validated in cloud environment
+- **MVP-1**: Real-time edge processing achieved at target performance levels
+- **MVP-2**: 85%+ Actionable Intelligence Rate confirmed on board plane
 
-### Development Team
-- **Lead Consultant**: Project management and technical oversight (60% allocation)
-- **ML Engineer**: Computer vision and model optimization (80% allocation)
-- **Software Engineer**: System integration and UI development (70% allocation)
-- **Data Engineer**: Dataset processing and quality assurance (40% allocation)
-- **Integration Specialist**: Hardware and VanGuard systems (30% allocation)
 
-## Success Metrics
+## Strategic Constraints & Design Considerations
 
-### Operational Performance
-- **Actionable Intelligence Rate**: over 85% operator confirmation
-- **Detection Performance**: over 90% recall, over 80% precision
-- **Processing Speed**: over 10 FPS sustained operation
-- **System Reliability**: over 99% uptime during flights
+### Technical Architecture Constraints
 
-### Business Impact
-- **Strike Prevention**: $7.84M annual savings (25% improvement)
-- **Operational Efficiency**: $499K annual labor savings
-- **Premium Revenue**: $1.2M from enhanced service offering
-- **ROI**: 4,208% over 3 years
+**Edge Computing Imperatives**
+- **Connectivity Independence**: Flight operations cannot depend on reliable cellular/satellite connectivity
+- **Latency Minimization**: Cloud processing introduces unacceptable 200-500ms round-trip delays
+- **Data Privacy**: Pipeline corridor imagery contains sensitive infrastructure information requiring local processing
+- **Power and Thermal Management**: Aircraft pods have strict power budgets and cooling limitations
 
-## Technical Architecture
+**Computer Vision Complexity**
+- **Domain Adaptation Challenge**: Aerial perspective creates significant differences from ground-based training data
+- **Environmental Variability**: Seasonal changes, weather conditions, and lighting variations affect detection reliability
+- **Scale and Resolution Trade-offs**: Balancing detection accuracy with processing speed on resource-constrained hardware
 
-### Data Pipeline
-- **Input**: Sony ILX-LR1 high-resolution video feed
-- **Processing**: Real-time frame capture and normalization
-- **Detection**: YOLOv8 model optimized for aerial imagery
-- **Output**: Bounding boxes with threat classifications
+### Business and Strategic Constraints
 
-### Compute Infrastructure
-- **MVP-0**: Cloud resources for proof-of-concept
-- **MVP-1**: Laptop/edge device for live demo
-- **MVP-2**: NVIDIA Jetson AGX Orin on aircraft pod
+**Investment Framework Boundaries**
+Our $10K Time & Materials and flexible approach reflects VanGuard's prudent risk management—validate core assumptions before major capital commitment. This constraint actually enables rapid iteration and pivot capability.
 
-### Integration Points
-- Falcon pod camera systems
-- iPad operator interface
-- GPS/KMZ corridor data
-- Operational logging systems
+**Competitive Timing Pressures**
+The pipeline inspection market is consolidating. VanGuard's window to establish AI leadership is finite—competitors are advancing in automated detection capabilities. This creates urgency balanced against technical rigor.
 
-## Project Constraints
+**Stakeholder Adoption Dynamics**
+Experienced pilots have high standards for system reliability and intuitive interfaces. False alarms erode trust faster than missed detections build confidence. Our 85% Actionable Intelligence Rate target reflects this psychological reality.
 
-### Technical Constraints
-- Edge processing limitations (power, compute, storage)
-- Real-time performance requirements (under 100ms latency)
-- Aircraft vibration and environmental conditions
-- Limited connectivity during flight operations
+### Data and Learning Constraints
 
-### Business Constraints
-- $683K total budget with milestone-based payments
-- 11-month deployment timeline
-- No disruption to current operations
-- Regulatory compliance requirements
+**Training Data Scarcity**
+Unlike autonomous vehicles with millions of hours of footage, pipeline-specific aerial threat detection lacks comprehensive datasets. This drives our proxy strategy approach and progressive data collection methodology.
 
-### Data Constraints
-- Limited aerial excavator imagery availability
-- Domain transfer from ground to aerial perspective
-- Annotation quality and consistency requirements
+**Annotation Expertise Requirements**
+Effective threat classification requires domain expertise—not all "excavators" pose equal risk. Professional annotation from pipeline safety experts is essential but expensive and time-intensive.
+
+**Continuous Learning Paradox**
+Systems must improve from operational data while maintaining consistent performance. Model updates require careful validation to avoid regression in proven capabilities.
+
+### Risk Mitigation Through Constraint Recognition
+
+- **Progressive Validation**: Each MVP phase validates critical assumptions before advancing
+- **Fail-Fast Architecture**: Clear go/no-go gates prevent resource waste on unviable approaches  
+- **Partnership Integration**: VanGuard's operational expertise guides technical decisions
+- **Scalable Foundation**: Solutions designed for single-threat detection must support multi-class expansion
 
 ---
 
@@ -132,9 +132,7 @@ While VanGuard leads in methane detection, competitors are advancing in automate
 
 <div className="grid gap-4 mt-8">
 
-<Card href="/project-overview/dictionary-of-terms" title="📚 Dictionary of Terms" icon="">
-  Key terminology, definitions, and technical vocabulary used throughout the project
-</Card>
+
 
 <Card href="/project-overview/technical-data" title="🔧 Technical Architecture" icon="">
   System design, specifications, technology stack, and integration requirements

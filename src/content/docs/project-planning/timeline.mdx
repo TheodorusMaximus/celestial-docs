@@ -1,194 +1,307 @@
 ---
 title: "Project Timeline"
-description: "Detailed timeline and milestones for PipelineVision implementation"
+description: "Comprehensive timeline and MVP strategy for PipelineVision implementation"
 author: "Theodore Zipoy"
 publishDate: 2025-01-20
-tags: ["timeline", "milestones", "planning"]
+tags: ["timeline", "milestones", "mvp", "planning", "strategy"]
 draft: false
 showBreadcrumbs: true
 showTableOfContents: true
 showNavigationLinks: true
 ---
 
-# Project Timeline
-
 ## Implementation Roadmap
 
-The PipelineVision project follows a strategic 11-month timeline with three distinct phases, each building on validated learnings from the previous phase.
+The PipelineVision project follows our proven progressive MVP methodology with a strategic timeline designed to validate core assumptions, reduce technical risk, and deliver value incrementally. Each MVP phase builds on validated learnings from the previous phase.
 
-## Phase Overview
+## MVP Development Philosophy
 
-### Phase 1: Foundation & Validation
-**Duration**: Months 1-3  
-**Investment**: $154,000  
-**Focus**: Technical feasibility and risk reduction
+### Core Principles
+- **Start Small, Move Fast**: Validate critical assumptions quickly with minimal investment
+- **Fail Fast, Learn Faster**: Rapid iteration based on real-world feedback and data
+- **Measure Everything**: Data-driven decision making at each stage with clear success criteria
+- **User-Centric Evolution**: VanGuard operator needs drive feature prioritization and design
+- **Partnership Approach**: Transparent collaboration with continuous stakeholder engagement
 
-### Phase 2: Production Development  
-**Duration**: Months 4-7  
-**Investment**: $345,000  
-**Focus**: System integration and optimization
-
-### Phase 3: Deployment & Operations
-**Duration**: Months 8-11  
-**Investment**: $183,000  
-**Focus**: Field testing and operational readiness
-
-## Detailed Timeline
-
-### Month 1: Project Initiation
-**Week 1-2: Setup & Planning**
-- Project environment configuration
-- Team onboarding and role assignment
-- VanGuard stakeholder alignment
-- Development infrastructure setup
-
-**Week 3-4: Requirements Validation**
-- Review 14 SOL requirements with VanGuard
-- Hardware specification confirmation
-- Success criteria refinement
-- Initial data assessment
-
-### Month 2: MVP-0 Development
-**Week 1-2: Cloud Infrastructure**
-- AWS/Azure GPU instance provisioning
-- Development pipeline setup
-- Version control and CI/CD configuration
-- Dataset preparation tools
-
-**Week 3-4: Proxy Strategy Testing**
-- YOLO model deployment
-- Truck-as-excavator proxy validation
-- Initial performance benchmarking
-- Domain transfer experiments
-
-### Month 3: MVP-1 Implementation
-**Week 1-2: Edge Computing Setup**
-- Laptop/edge device configuration
-- Real-time inference pipeline
-- Video streaming integration
-- Performance optimization
-
-**Week 3-4: Live Demo Preparation**
-- System integration testing
-- UI prototype development
-- Operator feedback collection
-- Phase 1 validation metrics
-
-## Key Milestones
-
-### Phase 1 Milestones
-
-| Milestone | Target Date | Success Criteria | Deliverable |
-|-----------|------------|------------------|-------------|
-| M1: Environment Ready | Month 1, Week 2 | Development infrastructure operational | Setup documentation |
-| M2: Requirements Locked | Month 1, Week 4 | Stakeholder sign-off on all requirements | Requirements spec v1.0 |
-| M3: Proxy Validation | Month 2, Week 4 | ≥70% truck-excavator correlation | Validation report |
-| M4: MVP-1 Demo | Month 3, Week 4 | Live inference at over 10 FPS | Demo recording |
-
-### Phase 2 Milestones
-
-| Milestone | Target Date | Success Criteria | Deliverable |
-|-----------|------------|------------------|-------------|
-| M5: Dataset Acquired | Month 4, Week 4 | 10,000+ annotated images | Dataset documentation |
-| M6: Model Trained | Month 5, Week 4 | over 85% mAP on test set | Model performance report |
-| M7: Hardware Integrated | Month 6, Week 4 | Jetson running on pod | Integration test results |
-| M8: iPad Interface | Month 7, Week 4 | Operator UI functional | UI demonstration |
-
-### Phase 3 Milestones
-
-| Milestone | Target Date | Success Criteria | Deliverable |
-|-----------|------------|------------------|-------------|
-| M9: Flight Testing | Month 8, Week 4 | Successful test flights | Flight test report |
-| M10: Operator Training | Month 9, Week 4 | 5+ operators trained | Training materials |
-| M11: Performance Target | Month 10, Week 4 | over 85% AIR achieved | Performance validation |
-| M12: Operational Ready | Month 11, Week 4 | System deployed | Final documentation |
-
-## Resource Allocation Timeline
-
-### Team Loading by Month
+### Three-Phase MVP Strategy
 
 ```
-Month    | Lead | ML Eng | SW Eng | Data | Integration
----------|------|--------|--------|------|------------
-Month 1  | 60%  | 40%    | 30%    | 20%  | 10%
-Month 2  | 60%  | 80%    | 60%    | 40%  | 20%
-Month 3  | 60%  | 80%    | 80%    | 40%  | 30%
-Month 4  | 50%  | 100%   | 70%    | 60%  | 20%
-Month 5  | 50%  | 100%   | 80%    | 60%  | 30%
-Month 6  | 60%  | 80%    | 90%    | 30%  | 50%
-Month 7  | 60%  | 70%    | 90%    | 20%  | 60%
-Month 8  | 70%  | 60%    | 70%    | 20%  | 50%
-Month 9  | 70%  | 50%    | 60%    | 10%  | 40%
-Month 10 | 60%  | 60%    | 50%    | 10%  | 30%
-Month 11 | 50%  | 40%    | 40%    | 10%  | 20%
+MVP-0: Cloud Proof of Concept  →  MVP-1: Edge Demonstration  →  MVP-2: Production Integration
+    (Validate Core Concept)         (Prove Real-Time Capability)      (Deploy Operational System)
+      Month 1: $5,000                 Months 2-3: $7,500                Months 4-7: $17,500
 ```
 
-## Critical Path Analysis
+**Total Investment**: $30,000 over 7 months using Time & Materials framework ($75/hour, $5K monthly cap)
 
-### Dependencies and Bottlenecks
+## MVP Phase Details
 
-**Critical Path Items:**
-1. **Dataset Acquisition** (Month 4) - Blocks model training
-2. **Hardware Procurement** (Month 5) - Blocks pod integration
-3. **FAA Approvals** (Month 7) - Blocks flight testing
-4. **Operator Buy-in** (Month 8) - Blocks deployment
+### MVP-0: Cloud Proof of Concept
+**Duration**: Month 1 (4 weeks)  
+**Investment**: $5,000  
+**Objective**: Prove technical feasibility with minimal investment using cloud resources and archived footage
 
-**Risk Mitigation:**
-- Parallel workstreams where possible
-- Early procurement initiation
-- Regulatory engagement from Month 1
-- Continuous stakeholder communication
+#### Core Components & Activities
+- **Cloud Infrastructure**: AWS EC2 p3.2xlarge or Azure NC6 GPU instances
+- **Model Deployment**: Pre-trained YOLOv8x (COCO dataset) with PyTorch/CUDA
+- **Data Pipeline**: S3/Blob storage for video archives, frame extraction, preprocessing
+- **Proxy Strategy**: Validate truck-as-excavator detection correlation (target: 70%+)
+- **Performance Baseline**: Establish FPS, latency, accuracy metrics
 
-## Schedule Contingencies
+#### Key Deliverables
+1. **Proof-of-Concept Video**: Screen recording showing detection on VanGuard footage
+2. **Performance Baseline Report**: FPS, latency, accuracy metrics with confidence intervals
+3. **Proxy Strategy Validation**: Truck-excavator correlation analysis
+4. **Go/No-Go Decision**: Data-driven recommendation for MVP-1 advancement
 
-### Buffer Allocation
-- **Technical Contingency**: 15% time buffer on development tasks
-- **Integration Buffer**: 20% on hardware integration
-- **Testing Buffer**: 25% on flight testing activities
-- **Overall Project Buffer**: 2 months (can extend to Month 13)
+#### Success Criteria
+- ✓ Video ingestion pipeline functional
+- ✓ YOLO model running on aerial footage at 10-30 FPS
+- ✓ Truck detection rate over 70% correlation with excavator locations
+- ✓ False positive rate under 30% on non-threat objects
 
-### Acceleration Opportunities
-- **Parallel Development**: MVP-1 and MVP-2 prep overlap
-- **Early Dataset Collection**: Start Month 2 vs Month 4
-- **Pre-procurement**: Order Jetson hardware Month 1
-- **Agile Sprints**: 2-week cycles for faster iteration
+---
 
-## Payment Schedule
+### MVP-1: Edge Demonstration & Custom Training
+**Duration**: Months 2-3 (6 weeks)  
+**Investment**: $7,500  
+**Objective**: Demonstrate real-time processing on edge hardware with custom dataset development
 
-### Milestone-Based Payments
+#### Core Components & Activities
+- **Custom Data Collection**: 500-1,000 professionally annotated pipeline-specific images
+- **Model Fine-Tuning**: Custom YOLOv8 training on VanGuard dataset with transfer learning
+- **Edge Hardware**: Deploy on NVIDIA Jetson Xavier NX or RTX-based mini-PC
+- **Real-Time Pipeline**: Live video capture, preprocessing, inference, alert generation
+- **Performance Optimization**: TensorRT optimization for 10-15 FPS target
 
-| Payment | Trigger | Amount | Timing |
-|---------|---------|--------|--------|
-| Initial | Contract signature | $170,785 (25%) | Month 0 |
-| Phase 1 | MVP-1 demonstration | $102,471 (15%) | Month 3 |
-| Phase 2 | Production system delivery | $239,098 (35%) | Month 7 |
-| Phase 3 | Operational deployment | $170,785 (25%) | Month 11 |
-| **Total** | | **$683,138** | |
+#### Key Deliverables
+1. **Custom Annotated Dataset**: 500-1,000 professionally labeled images
+2. **Fine-Tuned Model Package**: Optimized YOLOv8 model with training logs
+3. **Edge Hardware Prototype**: Configured system with live processing capability
+4. **Live Demo System**: Real-time detection with alert overlay interface
+5. **Performance Analysis**: Comprehensive comparison against baseline model
 
-## Success Tracking
+#### Success Criteria
+- ✓ Measurable accuracy improvement over pre-trained baseline
+- ✓ 10-15 FPS sustained processing on target hardware
+- ✓ Successful detection of pipeline-specific threat classes
+- ✓ End-to-end pipeline operational with under 200ms latency
 
-### Monthly Review Metrics
-- **Schedule Adherence**: % tasks on time
-- **Budget Utilization**: Actual vs planned spend
-- **Technical Progress**: Requirements completed
-- **Risk Status**: Open risks and mitigation status
-- **Stakeholder Satisfaction**: Monthly pulse check
+---
 
-### Go/No-Go Decision Points
-- **End of Phase 1**: Proxy strategy validation
-- **End of Phase 2**: System integration success
-- **Month 9**: Operational readiness assessment
+### MVP-2: Production Integration & Deployment
+**Duration**: Months 4-7 (12 weeks)  
+**Investment**: $17,500  
+**Objective**: Deploy fully integrated operational system on VanGuard's Falcon pod platform
 
-## Communication Cadence
+#### Core Components & Activities
+- **VanGuard Integration**: Full Falcon pod deployment on NVIDIA Jetson AGX Orin
+- **iPad Interface**: Native alert integration via WebSocket API and JSON messaging
+- **GPS/KMZ Integration**: Geofence validation with pipeline corridor mapping
+- **Production Hardening**: Robust error handling, containerized deployment, monitoring
+- **Field Testing**: Ground testing, test flights, operational validation
 
-### Regular Updates
-- **Weekly**: Team standup and blockers
-- **Bi-weekly**: VanGuard stakeholder sync
-- **Monthly**: Executive steering committee
-- **Quarterly**: Board-level progress report
+#### Key Deliverables
+1. **Production System**: Fully integrated Falcon pod deployment
+2. **iPad Interface**: Native alert integration with existing workflow
+3. **Operator Dashboard**: Real-time monitoring and feedback interface
+4. **Field Test Report**: Comprehensive validation results and performance metrics
+5. **Training Materials**: Complete operator guides and system documentation
 
-### Deliverable Schedule
-- **Month 3**: Phase 1 Technical Report
-- **Month 7**: Phase 2 System Documentation
-- **Month 11**: Final Project Report
-- **Ongoing**: Monthly progress reports
+#### Success Criteria
+- ✓ Zero disruption to existing operator workflows
+- ✓ Over 85% Actionable Intelligence Rate achieved
+- ✓ Over 99% system uptime during flight operations
+- ✓ Over 90% operator satisfaction in usability testing
+
+## Monthly Implementation Timeline
+
+### Month 1: MVP-0 - Cloud Proof of Concept
+**Week 1: Infrastructure Design & Dataset Selection**
+- Cloud storage and message queue setup for raw imagery, GPS logs, detection metadata
+- Evaluate public aerial datasets (COCO, DOTA, xView) for "trees," "vehicles," "people"
+- Test proxy strategy using "truck" class as excavator detection proxy
+- Set up AWS/GCP A100 GPU instances for cloud processing
+
+**Week 2: Technology Stack Implementation**  
+- Deploy Roboflow for annotation, normalization, and augmentation
+- Implement Ultralytics YOLOv8 training framework with TensorRT/ONNX export
+- Build Python + OpenCV inference loop and GPS overlay integration
+- Create frame-extraction and preprocessing pipeline (resize to 640×640, normalization)
+
+**Week 3: Dataset Validation & Model Testing**
+- Assess domain transfer effectiveness from public to pipeline-specific imagery
+- Build batch processing workflows for archived footage analysis
+- Deploy and test pre-trained model on VanGuard archived footage
+- Validate proxy detection correlation on known excavator instances
+
+**Week 4: Performance Analysis & Go/No-Go Decision**
+- Complete proof-of-concept demo with screen recording
+- Generate performance baseline report with FPS, latency, accuracy metrics
+- Conduct comprehensive proxy strategy validation analysis
+- Present go/no-go analysis and recommendation for MVP-1
+
+---
+
+### Month 2: MVP-1 Phase 1 - Custom Dataset Development
+**Week 1-2: Data Collection & Annotation Planning**
+- Plan systematic aerial data collection across pipeline corridors
+- Capture representative imagery from multiple seasons and environmental conditions
+- Set up professional annotation pipeline for pipeline-specific classes
+- Target: 500-1,000 professionally annotated images
+
+**Week 3-4: Model Fine-Tuning & Edge Hardware Setup**
+- Annotate custom classes: fallen trees, exposed pipes, construction equipment, personnel
+- Fine-tune pre-trained YOLOv8 model on custom VanGuard dataset
+- Deploy on NVIDIA Jetson Xavier NX or RTX-based mini-PC
+- Implement transfer learning with performance tracking against baseline
+
+---
+
+### Month 3: MVP-1 Phase 2 - Edge Demonstration
+**Week 1-2: Real-Time Processing Pipeline**
+- Implement real-time video capture and preprocessing
+- Deploy edge AI inference with optimized model
+- Create live telemetry overlay and alert generation system
+- Optimize for 10-15 FPS target performance with power management
+
+**Week 3-4: Live Demo System & Validation**
+- Complete live demo system with real-time detection capabilities
+- Conduct comprehensive performance analysis vs baseline model
+- Validate custom threat class detection effectiveness
+- Prepare stakeholder demonstration and collect feedback
+
+---
+
+### Months 4-7: MVP-2 - Production Integration
+**Month 4: VanGuard System Integration**
+- Full Falcon pod deployment planning and hardware integration
+- iPad alert integration via WebSocket API and JSON messaging
+- GPS/KMZ geofence validation with pipeline corridor mapping
+- Initial system integration testing and validation
+
+**Month 5: Production Hardening & Testing**
+- Implement robust error handling and automatic recovery systems
+- Deploy containerized system with Docker for reliability
+- Establish continuous monitoring and health check systems
+- Conduct comprehensive ground testing with full system integration
+
+**Month 6: Field Testing & Operator Integration**
+- Execute test flights with operational validation
+- Develop operator feedback loop for continuous model improvement
+- Implement alert confirmation/dismissal workflow
+- Create performance dashboard for real-time system monitoring
+
+**Month 7: Final Validation & Deployment**
+- Achieve target 85% or higher Actionable Intelligence Rate
+- Complete operator training and documentation
+- Conduct final system validation and performance testing
+- Deliver production-ready system with full documentation
+
+## Key Milestones & Success Gates
+
+### MVP-0 Milestones (Month 1)
+
+| Milestone | Target Date | Success Criteria | Deliverable |
+|-----------|------------|------------------|-------------|
+| M1: Infrastructure Ready | Week 2 | Cloud infrastructure operational, datasets evaluated | Architecture diagram & dataset evaluation |
+| M2: Proxy Validation | Week 4 | 70%+ truck-excavator correlation confirmed | Proof-of-concept demo & validation report |
+
+### MVP-1 Milestones (Months 2-3)
+
+| Milestone | Target Date | Success Criteria | Deliverable |
+|-----------|------------|------------------|-------------|
+| M3: Custom Dataset | Month 2, Week 4 | 500-1,000 annotated images completed | Annotated dataset & annotation pipeline |
+| M4: Edge Demo | Month 3, Week 4 | 10-15 FPS real-time processing achieved | Live demo system & performance analysis |
+
+### MVP-2 Milestones (Months 4-7)
+
+| Milestone | Target Date | Success Criteria | Deliverable |
+|-----------|------------|------------------|-------------|
+| M5: System Integration | Month 5, Week 2 | Falcon pod integration functional | Production system & iPad integration |
+| M6: Field Testing | Month 6, Week 4 | Successful test flights completed | Field test report & operator feedback |
+| M7: Production Ready | Month 7, Week 4 | 85%+ AIR & 99%+ uptime achieved | Final system delivery & documentation |
+
+## Investment & Resource Framework
+
+### Time & Materials Structure
+- **Consulting Rate**: $75/hour
+- **Monthly Billing Cap**: $5,000 (~67 hours)
+- **Total Project Investment**: $30,000 over 7 months
+- **Billing**: Monthly invoicing with detailed time logs and deliverable status
+
+### Resource Allocation by Phase
+
+| Phase | Duration | Hours | Investment | Key Resources |
+|-------|----------|-------|------------|---------------|
+| MVP-0 | Month 1 | 60 | $5,000 | Lead Consultant (60%), ML Engineer (40%) |
+| MVP-1 | Months 2-3 | 100 | $7,500 | ML Engineer (80%), Data Engineer (60%) |
+| MVP-2 | Months 4-7 | 140 | $17,500 | Full team integration and deployment |
+
+### Team Structure
+- **Lead Consultant**: Project management and technical oversight
+- **ML Engineer**: Computer vision and model optimization  
+- **Software Engineer**: System integration and UI development
+- **Data Engineer**: Dataset processing and quality assurance
+- **Integration Specialist**: Hardware and VanGuard systems
+
+## Risk Management & Contingencies
+
+### Primary Risk Mitigation
+
+**Data Domain Gap (MVP-0)**
+- **Risk**: Public aerial datasets may not represent VanGuard's environment
+- **Mitigation**: Robust proxy validation, synthetic data augmentation, rapid pivot capability
+
+**Edge Performance (MVP-1)**  
+- **Risk**: Hardware may not achieve 10-15 FPS target
+- **Mitigation**: Model compression, hybrid processing, hardware upgrade path
+
+**Integration Complexity (MVP-2)**
+- **Risk**: Unexpected compatibility issues with VanGuard systems
+- **Mitigation**: Early discovery sessions, prototype testing, multiple interface options
+
+### Contingency Planning
+- **Budget Contingency**: $7,000 (23% of total) for hardware, cloud costs, integration challenges
+- **Timeline Flexibility**: 2-week buffer per phase, parallel workstream opportunities
+- **Pivot Options**: Clear go/no-go gates with alternative approaches identified
+
+### Success Assurance
+- **Transparent Reporting**: Weekly progress updates and monthly stakeholder reviews
+- **Quality Gates**: Data-driven decision points with clear success criteria
+- **Partnership Approach**: Continuous VanGuard collaboration and feedback integration
+
+## Communication & Partnership Framework
+
+### Regular Engagement Schedule
+- **Weekly**: Team standup and progress updates
+- **Bi-weekly**: VanGuard stakeholder synchronization and feedback sessions
+- **Monthly**: Executive steering committee and milestone reviews
+- **Phase Gates**: Comprehensive reviews with go/no-go decisions
+
+### Success Tracking Metrics
+- **Technical Progress**: MVP deliverables completed on schedule
+- **Performance Metrics**: FPS, accuracy, and system reliability targets
+- **Stakeholder Satisfaction**: Regular pulse checks and feedback integration
+- **Risk Status**: Proactive monitoring and mitigation effectiveness
+
+### Go/No-Go Decision Gates
+- **End of MVP-0**: Proxy strategy validation (70%+ correlation required)
+- **End of MVP-1**: Edge processing validation (10-15 FPS achieved)
+- **End of MVP-2**: Production readiness (85%+ AIR, 99%+ uptime)
+
+## Next Steps & Engagement
+
+### Immediate Actions (Next 30 Days)
+1. **Contract Approval**: Review and approve MVP timeline and T&M framework
+2. **Kick-off Workshop**: Requirements validation and success criteria alignment  
+3. **Environment Setup**: Cloud infrastructure and development pipeline
+4. **MVP-0 Initiation**: Begin proof-of-concept with 4-week delivery target
+
+### Partnership Commitment
+We're dedicated to VanGuard's success through:
+- **Transparent Communication**: Regular updates and open collaboration
+- **Flexible Methodology**: Adaptive approach based on learning and feedback
+- **Quality Assurance**: Rigorous testing and validation at each phase
+- **Knowledge Transfer**: Complete documentation and operator training
+
+**Ready to transform pipeline safety through intelligent computer vision?**

@@ -11,7 +11,6 @@ showNavigationLinks: true
 ---
 
 import { Card } from '@/components/docs/Card';
-import MermaidBlock from '@/components/MermaidBlock.astro';
 
 ## Executive Summary
 
@@ -162,7 +161,7 @@ graph LR
   - **Resolution**: 12MP native (4096 x 3000), processed at 1920x1080
   - **Frame Rate**: 30 FPS capture, 15 FPS inference processing
   - **Interface**: USB3 Vision compliant with GenICam standard
-  - **Synchronization**: GPS timestamp correlation with &lt;10ms accuracy
+  - **Synchronization**: GPS timestamp correlation with <10ms accuracy
 - **Processing Pipeline**:
   - **Frame Buffering**: 2-second rolling buffer for quality selection
   - **Preprocessing**: Resolution scaling, color normalization, contrast enhancement
@@ -288,11 +287,11 @@ graph TD
 
 | Testing Phase | Metric | Target | Measurement Method |
 |---------------|--------|--------|--------------------|
-| **Algorithm** | Model mAP@0.5 | &gt;93% | Hold-out test sets |
-| **Performance** | Inference FPS | &gt;15 FPS | Sustained load testing |
-| **Integration** | End-to-end latency | &lt;200ms | Timestamp correlation |
-| **Operational** | Actionable Intelligence Rate | &gt;85% | Operator feedback tracking |
-| **Reliability** | System uptime | &gt;99% | Flight hour monitoring |
+| **Algorithm** | Model mAP@0.5 | >93% | Hold-out test sets |
+| **Performance** | Inference FPS | >15 FPS | Sustained load testing |
+| **Integration** | End-to-end latency | <200ms | Timestamp correlation |
+| **Operational** | Actionable Intelligence Rate | >85% | Operator feedback tracking |
+| **Reliability** | System uptime | >99% | Flight hour monitoring |
 
 ### Continuous Learning & Improvement
 
@@ -309,7 +308,7 @@ graph TD
 - **Protocol**: USB3 Vision compliant with GenICam standard
 - **Resolution**: 4096x3000 native capture, 1920x1080 inference processing
 - **Frame Rate**: 30 FPS capture, 15 FPS inference with intelligent frame selection
-- **Synchronization**: GPS timestamp correlation with &lt;10ms accuracy
+- **Synchronization**: GPS timestamp correlation with <10ms accuracy
 - **Interface**: USB3.0 SuperSpeed (5 Gbps) with automatic fallback to USB2.0
 
 #### iPad Interface & Communication
@@ -317,7 +316,7 @@ graph TD
 - **Fallback Protocol**: REST API for configuration and status queries
 - **Data Format**: JSON with base64-encoded threat region thumbnails
 - **Update Rate**: Real-time alerts (event-driven) + 1 Hz heartbeat
-- **Feedback Loop**: Operator confirm/dismiss with &lt;100ms response time
+- **Feedback Loop**: Operator confirm/dismiss with <100ms response time
 - **Offline Capability**: Local queue with sync when connectivity restored
 
 #### GPS/KMZ Integration & Geospatial Intelligence
@@ -356,7 +355,7 @@ graph TB
 #### Connectivity Strategy
 - **Primary Mode**: Full offline operation (no connectivity required)
 - **Secondary Mode**: Opportunistic sync when WiFi/cellular available
-- **Data Bandwidth**: &lt;1 Mbps for alert thumbnails and metadata
+- **Data Bandwidth**: <1 Mbps for alert thumbnails and metadata
 - **Storage Strategy**: 7-day local retention with cloud sync for long-term analytics
 
 ---
@@ -376,7 +375,7 @@ Our risk management approach aligns with the phased MVP methodology, providing c
 
 #### Risk #1: Data Domain Gap (MVP-0 Phase)
 **Challenge**: Public aerial datasets may not represent VanGuard's specific operational environment  
-**Indicators**: &lt;70% proxy detection correlation in validation testing  
+**Indicators**: <70% proxy detection correlation in validation testing  
 **Mitigation**: 
 - Implement synthetic data augmentation pipeline
 - Expedite custom VanGuard data collection
@@ -384,7 +383,7 @@ Our risk management approach aligns with the phased MVP methodology, providing c
 - Maintain multiple model architectures for comparison
 
 #### Risk #2: Edge Compute Performance (MVP-1 Phase)
-**Challenge**: Jetson AGX Orin may not achieve target &lt;200ms latency per frame  
+**Challenge**: Jetson AGX Orin may not achieve target <200ms latency per frame  
 **Indicators**: Sustained performance below 15 FPS or excessive power consumption  
 **Mitigation**:
 - Apply model quantization and pruning techniques
@@ -479,22 +478,22 @@ Our risk management approach aligns with the phased MVP methodology, providing c
 
 ## Related Documentation
 
-&lt;div className="grid gap-4 mt-8"&gt;
+<div className="grid gap-4 mt-8">
 
-&lt;Card href="/project-planning/rfp-response" title="📋 RFP Response & Statement of Work" icon=""&gt;
+<Card href="/project-planning/rfp-response" title="📋 RFP Response & Statement of Work" icon="">
   Complete proposal with MVP phases, pricing, and engagement model
-&lt;/Card&gt;
+</Card>
 
-&lt;Card href="/project-planning/risk-management" title="⚠️ Risk Management Framework" icon=""&gt;
+<Card href="/project-planning/risk-management" title="⚠️ Risk Management Framework" icon="">
   Detailed risk assessment and mitigation strategies
-&lt;/Card&gt;
+</Card>
 
-&lt;Card href="/project-planning/timeline" title="📅 Project Timeline" icon=""&gt;
+<Card href="/project-planning/timeline" title="📅 Project Timeline" icon="">
   Implementation schedule with milestones and dependencies
-&lt;/Card&gt;
+</Card>
 
-&lt;Card href="/project-overview/core-hypotheses" title="🧪 Core Hypotheses" icon=""&gt;
+<Card href="/project-overview/core-hypotheses" title="🧪 Core Hypotheses" icon="">
   Fundamental assumptions and validation strategies
-&lt;/Card&gt;
+</Card>
 
-&lt;/div&gt;
+</div>

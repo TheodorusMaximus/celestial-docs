@@ -3,6 +3,7 @@ import rehypeExternalLinks from "rehype-external-links";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
+import { remarkMermaid } from "./src/lib/remark-mermaid.js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -34,6 +35,7 @@ export default defineConfig({
     }),
     mdx({
       gfm: true,
+      remarkPlugins: [remarkMermaid],
     }),
   ],
 });

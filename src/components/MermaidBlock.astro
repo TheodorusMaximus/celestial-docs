@@ -1,0 +1,99 @@
+---
+// Astro component for server-side Mermaid rendering with client-side fallback
+interface Props {
+  code: string;
+  className?: string;
+}
+
+const { code, className = '' } = Astro.props;
+const id = `mermaid-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class={`mermaid-container my-6 ${className}`}>
+  <div 
+    id={id}
+    class="mermaid-diagram flex justify-center"
+    data-mermaid-code={code}
+  >
+    <!-- Fallback content while loading -->
+    <div class="animate-pulse bg-gray-100 dark:bg-gray-800 rounded-lg w-full min-h-[200px] flex items-center justify-center">
+      <span class="text-gray-500 dark:text-gray-400">Loading diagram...</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Client-side Mermaid initialization and rendering
+  async function initMermaid() {
+    try {
+      const mermaid = await import('mermaid');
+      
+      mermaid.default.initialize({
+        startOnLoad: false,
+        theme: 'base',
+        themeVariables: {
+          primaryColor: '#3b82f6',
+          primaryTextColor: '#1f2937',
+          primaryBorderColor: '#6b7280',
+          lineColor: '#6b7280',
+          secondaryColor: '#f3f4f6',
+          tertiaryColor: '#f9fafb',
+          background: '#ffffff',
+          mainBkg: '#ffffff',
+          secondBkg: '#f3f4f6',
+          tertiaryBkg: '#f9fafb',
+        },
+        darkMode: false, // We'll handle dark mode separately if needed
+      });
+
+      // Find all mermaid containers and render them
+      const containers = document.querySelectorAll('[data-mermaid-code]');
+      
+      for (const container of containers) {
+        const code = container.getAttribute('data-mermaid-code');
+        if (!code) continue;
+
+        try {
+          const uniqueId = `mermaid-render-${Math.random().toString(36).substr(2, 9)}`;
+          const { svg } = await mermaid.default.render(uniqueId, code);
+          container.innerHTML = svg;
+        } catch (error) {
+          console.error('Error rendering Mermaid diagram:', error);
+          container.innerHTML = `
+            <div class="border border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/20 p-4 rounded-lg">
+              <p class="text-red-800 dark:text-red-200 font-medium">Error rendering diagram</p>
+              <pre class="text-sm text-red-600 dark:text-red-300 mt-2 whitespace-pre-wrap overflow-auto">${code}</pre>
+            </div>
+          `;
+        }
+      }
+    } catch (error) {
+      console.error('Failed to load Mermaid:', error);
+    }
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMermaid);
+  } else {
+    initMermaid();
+  }
+
+  // Re-initialize on navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', initMermaid);
+</script>
+
+<style>
+  .mermaid-container {
+    @apply overflow-x-auto;
+  }
+  
+  .mermaid-diagram svg {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Ensure diagrams are responsive */
+  .mermaid-diagram .mermaid {
+    @apply flex justify-center;
+  }
+</style>
