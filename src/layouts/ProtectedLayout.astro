@@ -1,0 +1,13 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import AuthGuard from "@/components/AuthGuard.astro";
+
+import type { BaseLayoutProps } from "@/lib/types";
+
+const { title, description, ogImage } = Astro.props as BaseLayoutProps;
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage}>
+  <AuthGuard />
+  <slot />
+</BaseLayout>

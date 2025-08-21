@@ -1,0 +1,59 @@
+name: Lighthouse Performance Check
+
+on:
+  schedule:
+    # Run weekly on Sundays at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  lighthouse-check:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.12.x
+
+      - name: Run Lighthouse on live site
+        run: |
+          lhci autorun --config=lighthouserc-live.json
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create performance report issue
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🚨 Performance Alert: Lighthouse Scores Below Threshold',
+              body: `
+            ## Performance Alert
+            
+            The weekly Lighthouse check detected performance issues with the live site.
+            
+            **Site:** https://pipelinevision.netlify.app
+            **Date:** ${new Date().toISOString().split('T')[0]}
+            
+            Please review the performance metrics and consider optimizations.
+            
+            ### Next Steps:
+            - [ ] Review Lighthouse report details
+            - [ ] Identify performance bottlenecks
+            - [ ] Implement optimizations
+            - [ ] Re-run tests
+            
+            *This issue was automatically created by the Lighthouse performance monitoring workflow.*
+              `,
+              labels: ['performance', 'lighthouse', 'automated']
+            })

@@ -2,7 +2,6 @@
 import HeadSEO from "@/components/core/HeadSEO.astro";
 import Header from "@/components/core/Header.astro";
 import Footer from "@/components/core/Footer.astro";
-import AuthGuard from "@/components/AuthGuard.astro";
 
 import type { BaseLayoutProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
@@ -22,7 +21,6 @@ const { title, description, ogImage } = Astro.props as BaseLayoutProps;
     />
   </head>
   <body class="bg-background text-foreground font-sans">
-    <AuthGuard />
     <div class="flex flex-col min-h-screen">
       <Header class="bg-background" />
       <main class="flex flex-1 flex-col justify-center items-center">

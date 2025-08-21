@@ -1,5 +1,5 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProtectedLayout from "@/layouts/ProtectedLayout.astro";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { PlaneIcon } from "@/components/ui/PlaneIcon";
@@ -10,7 +10,7 @@ const frontmatter = {
 };
 ---
 
-<BaseLayout frontmatter={frontmatter}>
+<ProtectedLayout frontmatter={frontmatter}>
     <!-- Hero Section - Full Viewport -->
     <section class="relative w-full min-h-screen flex items-start justify-center overflow-hidden pt-20">
       <!-- Video Background -->
@@ -431,7 +431,7 @@ const frontmatter = {
         </div>
       </div>
     </section>
-</BaseLayout>
+</ProtectedLayout>
 
 <style>
   /* Global overflow prevention */

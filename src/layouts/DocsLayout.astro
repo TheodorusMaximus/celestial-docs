@@ -3,6 +3,7 @@ import HeadSEO from "@/components/core/HeadSEO.astro";
 import Header from "@/components/core/Header.astro";
 import Footer from "@/components/core/Footer.astro";
 import { Copy } from "@/components/core/Copy";
+import AuthGuard from "@/components/AuthGuard.astro";
 
 import SectionedSideNav from "@/components/docs/SectionedSideNav.astro";
 import TableofContent from "@/components/docs/TableofContents.astro";
@@ -43,6 +44,7 @@ const {
   <body
     class=`font-sans ${hide_toc && hide_sidenav && max_width ? "" : "bg-card"}`
   >
+    <AuthGuard />
     <Copy client:only="react" />
     <div class="flex flex-col min-h-screen">
       <Header class="border-b bg-background" />
