@@ -1,0 +1,11 @@
+---
+// Simple logout page that clears the session
+---
+
+<script>
+  // Clear the authentication data
+  localStorage.removeItem('pipelineVisionAuth');
+  
+  // Redirect to login page
+  window.location.href = '/login';
+</script>

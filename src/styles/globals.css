@@ -127,8 +127,13 @@ ol {
   @apply my-8 ml-6 list-decimal [&>li]:mt-3 [&>li]:mb-2;
 }
 
+/* Responsive table wrapper */
+.prose table {
+  @apply w-full table-auto block overflow-x-auto whitespace-nowrap md:table md:whitespace-normal;
+}
+
 table {
-  @apply w-full;
+  @apply w-full border-collapse;
 }
 
 tr {
@@ -136,11 +141,25 @@ tr {
 }
 
 th {
-  @apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right;
+  @apply border px-3 py-2 text-left font-bold text-xs md:text-sm [&[align=center]]:text-center [&[align=right]]:text-right;
 }
 
 td {
-  @apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
+  @apply border px-3 py-2 text-left text-xs md:text-sm [&[align=center]]:text-center [&[align=right]]:text-right break-words;
+}
+
+/* Ensure table cells can wrap content */
+.prose td {
+  @apply max-w-0 md:max-w-none;
+}
+
+/* Make specific columns more flexible */
+.prose td:first-child {
+  @apply min-w-[120px] font-medium;
+}
+
+.prose td:last-child {
+  @apply min-w-[150px];
 }
 
 .lead {

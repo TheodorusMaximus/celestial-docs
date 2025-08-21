@@ -1,0 +1,44 @@
+---
+// This component will check authentication on the client side
+---
+
+<script>
+  // Configuration
+  const SESSION_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+  const STORAGE_KEY = 'pipelineVisionAuth';
+
+  function checkAuthAndRedirect() {
+    // Skip auth check if we're already on the login page
+    if (window.location.pathname === '/login') {
+      return;
+    }
+
+    const authData = localStorage.getItem(STORAGE_KEY);
+    
+    if (!authData) {
+      // No auth data, redirect to login
+      window.location.href = '/login';
+      return;
+    }
+
+    try {
+      const { authenticated, expiresAt } = JSON.parse(authData);
+      
+      if (!authenticated || Date.now() >= expiresAt) {
+        // Not authenticated or session expired
+        localStorage.removeItem(STORAGE_KEY);
+        window.location.href = '/login';
+        return;
+      }
+      
+      // Session is valid, user can stay on the page
+    } catch (error) {
+      // Invalid auth data, redirect to login
+      localStorage.removeItem(STORAGE_KEY);
+      window.location.href = '/login';
+    }
+  }
+
+  // Check authentication when the page loads
+  checkAuthAndRedirect();
+</script>

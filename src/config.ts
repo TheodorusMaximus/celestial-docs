@@ -27,8 +27,10 @@ export const menu_items: { title: string; href: string }[] = [
     title: "Planning",
     href: "/project-planning",
   },
-
-
+  {
+    title: "Library",
+    href: "/library",
+  },
 ];
 
 // Navigation structure with static section headers and clickable items

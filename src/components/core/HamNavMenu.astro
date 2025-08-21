@@ -44,7 +44,7 @@ const pathname_part: string = pathname.split("/")[1];
           <a 
             href={item.href}
             class={`
-              px-3 py-2 text-base font-medium transition-colors duration-200 no-underline
+              px-3 py-2 text-lg font-medium transition-colors duration-200 no-underline
               ${
                 (pathname === "/" && item.href === "/") ||
                 (pathname !== "/" && "/" + pathname_part === "/" + item.href.split("/")[1])
